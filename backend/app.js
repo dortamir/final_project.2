@@ -40,6 +40,31 @@ const createApp = async function () {
   app.get('/signup', (req, res) => {
     res.render('signup');
   });
+  
+  app.get('/signin', async (req, res) => {
+    try {
+      // Check if the user is already authenticated
+      if (req.session.user) {
+        // User is already signed in, redirect to a different page
+        return res.redirect('/dashboard');
+      }
 
+      // Call your existing sign-in method to handle the authentication
+      const signInResult = await signInUser(req.body.username, req.body.password);
+
+      // Assuming the sign-in method returns a user object upon successful authentication
+      const user = signInResult.user;
+
+      // Store the user object in the session
+      req.session.user = user;
+      res.cookie('user', user);
+
+      // Redirect the user to the dashboard or any other desired page
+      res.redirect('/dashboard');
+    } catch (error) {
+      console.error('Error Signing In:', error);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
   
 }
