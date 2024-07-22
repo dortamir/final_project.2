@@ -36,4 +36,10 @@ const createApp = async function () {
   app.set('port', process.env.PORT || 4000);
   app.set('view engine', 'ejs');
   app.set('views', path.join(__dirname, '..', 'frontend', 'views'));  //await load_routes(app);
+
+  app.get('/signup', (req, res) => {
+    res.render('signup');
+  });
+
+  
 }
