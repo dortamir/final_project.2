@@ -59,3 +59,20 @@ exports.signIn = async (req, res) => {
         return res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
+exports.logout = async (req, res) => {
+    try {
+        // Clear the user's session
+        req.session.destroy();
+
+        // Remove the user's cookie
+        res.clearCookie('user');
+        res.clearCookie('order');
+
+        // Redirect the user to the login page or any other desired page
+        res.redirect('/');
+    } catch (error) {
+        console.error('Error Logging Out:', error);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
