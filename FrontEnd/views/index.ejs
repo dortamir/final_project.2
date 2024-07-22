@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>D.T.S.L Jewlery</title>
+  
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <header>
+        <div class="pink-bar">
+          <p class="free-shipping">Free Shipping on orders over 199₪</p>
+        </div>
+        
+        <div class="banner">
+          <div class="navbar">
+            
+            <ul>
+              <li><a href="/graf"><img src="/image/updatelogo.png" class="logo"></a></li>
+
+                      <li> <form class="d-flex" role="search" action="/searchResult" method="GET">
+                           <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">
+                                  <div class="search-button">
+                                  <img class="search-button" src="https://codeil.org/Files/Images/search.png">
+                                  </div>
+                                </button>
+                            </form>
+                      </li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/Necklaces">Necklaces</a></li>
+              <li><a href="/Rings">Rings</a></li>
+              <li><a href="/Bracelets">Bracelets</a></li>
+              <li><a href="/earrings">Earrings</a></li>
+              <li><a href="/orders"><i class="fas fa-shopping-cart"></i></a></li>
+              <li> <% if (username) { %>
+                <div class="welcome-message">
+                 
+                </div>
+                <a class="navbar-brand" id="logoutBtn" href="/logout" class="navButtons">Logout</a>
+                <% } %>  </li>
+              
+            </ul>
+            
+          </div>
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo-container">
+       
+      </div>
+      <div class="content">
+         <h1>D.T.S.L Jewlery</h1>
+         <p>We are here to make you happy in finding the jewel of your dreams<br>since 2021</p>
+      <div>
+    </div>
+    </div>
+
+  </header>
+
+    <% if (username) { %>
+      <div class="welcome-message">
+        <span class="welcomeMessageText">Hi, <%= username %></span>
+      </div>
+      
+      <% } %>
+    
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="content">
+          <h1>D.T.S.L Jewlery</h1>
+          <p>We are here to make you happy in finding the jewel of your dreams<br>since 2018</p>
+          <div>
+            <a href="/userprofile"><button type="button"><span></span>Sign In</button></a>
+            <a href="/signup"><button type="button"><span></span>Sign Up</button></a>
+            <div>
+              <a href="/contact"><button class=" new" type="button"><span></span>Contact Us</button></a>
+            </div>
+
+
+          </div>
+        </div>
+
+  </div>
+  </nav>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="../index.js"></script>
+
+</body>
+
+</html>

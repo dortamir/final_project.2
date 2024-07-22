@@ -5,7 +5,7 @@ const path = require('path');
 
 // הגדרת EJS כהמנוע תצוגה
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname,'..', 'views'));
+app.set('views', path.join(__dirname,'..','FrontEnd', 'views'));
 
 // הגדרת נתיב לדף הבית
 app.get('/', (req, res) => {
