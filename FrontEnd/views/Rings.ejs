@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/Bracelets.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>Rings</title>
+    <style>
+      .banner {
+        position: relative;
+        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../image/backimage.jpg);
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+      }
+    
+      .navbar {
+        width: 85%;
+        margin: auto;
+        padding: 35px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    
+      .logo {
+        width: 160px;
+        cursor: pointer;
+      }
+    
+      .navbar ul li {
+        list-style: none;
+        display: inline-block;
+        margin: 0 20px;
+        position: relative;
+      }
+    
+      .navbar ul li a {
+        text-decoration: none;
+        color: #fff;
+        text-transform: uppercase;
+      }
+    
+      .navbar ul li::after {
+        content: '';
+        height: 3px;
+        width: 0%;
+        background: #e85d9e;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        transition: 0.5s;
+      }
+    
+      .navbar ul li:hover::after {
+        width: 100%;
+      }
+    
+      .content {
+        width: 100%;
+        margin: 70px auto 0;
+        text-align: center;
+        color: #fff;
+      }
+    
+      .content h1 {
+        font-size: 70px;
+        margin-top: 40px;
+        margin-bottom: 10px;
+      }
+    
+      .content p {
+        margin: 10px auto;
+        margin-top: 10px;
+        font-weight: 100;
+        line-height: 25px;
+      }
+    
+      button {
+        width: 200px;
+        padding: 15px 0;
+        text-align: center;
+        
+        border-radius: 25px;
+        font-weight: bold;
+        border: 2px solid #e85d9e;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+    
+
+    
+      button:hover span {
+        width: 100%;
+      }
+    
+      button:hover {
+        border: none;
+        color: #e85d9e;
+      }
+    
+      .pink-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #e85d9e;
+        padding: 5px 0;
+        text-align: center;
+        font-size: 12px;
+        z-index: 9999;
+        opacity: 0.9;
+      }
+    
+      .free-shipping {
+        margin: 0;
+      }
+    
+      .fa-shopping-cart {
+        font-size: 24px;
+        color: #e85d9e;
+      }
+    
+      .fa-shopping-cart:before {
+        content: "\f07a";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-style: normal;
+      }
+    
+      button.new {
+        margin-top: -10px;
+      }
+    </style>
+</head>
+
+<body>
+  <header>
+        <div class="pink-bar">
+          <p class="free-shipping">Free Shipping on orders over 199₪</p>
+        </div>
+        
+        <div class="banner">
+          <div class="navbar">
+            <li><a href="/graf"><img src="/image/updatelogo.png" class="logo"></a></li>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/Necklaces">Necklaces</a></li>
+              <li><a href="/Rings">Rings</a></li>
+              <li><a href="/Bracelets">Bracelets</a></li>
+              <li><a href="/earrings">Earrings</a></li>
+              <li><a href="/orders"><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+          </div>
+          <div>
+
+          </div>
+    <a href="/" class="back-to-home-btn">
+      
+    </a>
+  </header>
+  <div class="logo2-container">
+   
+  </div>
+
+  <main>
+    <% if (username==='lian' ) { %>
+      <button class="add-item-button" type="button">
+        <span class="button__text">Add Item</span>
+        <span class="button__icon"><svg class="svg" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <line x1="12" x2="12" y1="5" y2="19"></line>
+            <line x1="5" x2="19" y1="12" y2="12"></line>
+          </svg></span>
+      </button>
+      <form class="form add-item-form">
+        <button class="dismiss" type="button">×</button>
+        <p class="title">Add item</p>
+        <p class="message">Please fill all the details!</p>
+        <label>
+          <p>Item Type(Ring / Necklace / Bracelate/ Earrings)</p>
+          <input required="" placeholder="" type="addItamType" class="input">
+         
+        </label>
+
+        <label>
+          <p>Item Name</p>
+          <input required="" placeholder="" type="addItemName" class="input">
+          
+        </label>
+
+        <label>
+          <p>Price</p>
+          <input required="" placeholder="" type="addItemPrice" class="input">
+          
+        </label>
+        <label>
+          <p>Image(URL Address)</p>
+          <input required="" placeholder="" type="addItemImage" class="input">
+          
+        </label>
+        <button class="submit">Submit</button>
+      </form>
+        <a href="up" class="updatebut"><button>UPDATE</button></a>
+      <% } %>
+        <% if (username) { %>
+          <div class="welcome-message">
+            <span class="welcomeMessageText">Hi, <%= username %></span>
+          </div>
+          <% } %>
+          <div class="cart-container">
+            <a href="/orders" class="cart-btn">
+              <img src="/assets/cart.png" alt="Cart" class="cart-img">
+            </a>
+            <span class="cart-text">Cart</span>
+                                      <br>
+                                      <br>
+                                      <br>
+                                      <br>
+                                      <br>
+                                      <br>
+                                      <br>
+                                      <br>
+          </div>
+            <section id="vegetables-container" class="card-container">
+              <% Rings.forEach(item=> { %>
+                <div class="card">
+                  <% if (username==='lian' ) { %>
+                    <button class="button" onclick="deleteItem('<%= item._id %>')">
+                      <span>Remove item</span>
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-miterlimit="2"
+                          stroke-linejoin="round" fill-rule="evenodd" clip-rule="evenodd">
+                          <path fill-rule="nonzero"
+                            d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 1.5c-4.69 0-8.497 3.807-8.497 8.497s3.807 8.498 8.497 8.498 8.498-3.808 8.498-8.498-3.808-8.497-8.498-8.497zm0 7.425 2.717-2.718c.146-.146.339-.219.531-.219.404 0 .75.325.75.75 0 .193-.073.384-.219.531l-2.717 2.717 2.727 2.728c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.384-.073-.53-.219l-2.729-2.728-2.728 2.728c-.146.146-.338.219-.53.219-.401 0-.751-.323-.751-.75 0-.192.073-.384.22-.531l2.728-2.728-2.722-2.722c-.146-.147-.219-.338-.219-.531 0-.425.346-.749.75-.749.192 0 .385.073.531.219z">
+                          </path>
+                        </svg>
+                      </span>
+                    </button>
+                    <% } %>
+                      <div class="scale-background"></div>
+                      <div class="card-img">
+                        <img src="<%= item.image %>" alt="<%= item.name %>">
+                      </div>
+                      <div class="card-info">
+                        <p class="text-title item-name">
+                          <%= item.name %>
+                        </p>
+                        <p class="text-body item-price">$<%= item.price %> per pound</p>
+                        <div class="card-footer">
+                          <div class="card-input">
+                            <label for="<%= item.name %>-weight">Weight (in pounds):</label>
+                            <input type="number" id="<%= item.name %>-weight" name="<%= item.name %>-weight" min="0"
+                              max="10" class="item-amount">
+                          </div>
+                          <div class="card-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                              class="feather feather-shopping-cart">
+                              <circle cx="9" cy="21" r="1"></circle>
+                              <circle cx="20" cy="21" r="1"></circle>
+                              <path d="M1 1h4l2.5 7h13m2 0v12h-16v-12m-2 0h20"></path>
+                            </svg>
+                            <span class="add-to-order-btn"
+                              onclick="addToOrder('<%= item.name %>', '<%= item.price %>', document.getElementById('<%= item.name %>-weight').value)">Add
+                              to your Order</span>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <% }) %>
+            </section>
+            <div id="match-message" class="pop-up-message"></div>
+
+  </main>
+
+  <footer>
+    <p>© 2023 Online Vegetable Store. All rights reserved.</p>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/backend/routes/orders.js"></script>
+  <script src="/backend/routes/users.js"></script>
+  <script src="/backend/routes/items.js"></script>
+  <script src="/backend/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <script src="../doOrder.js"></script>
+  <script>
+    const dismissButton = document.querySelector('.dismiss');
+    const formContainer = document.querySelector('.add-item-form');
+
+    dismissButton.addEventListener('click', () => {
+      formContainer.style.display = 'none';
+    });
+    const addButton = document.querySelector('.add-item-button');
+    const form = document.querySelector('.add-item-form');
+
+    addButton.addEventListener('click', () => {
+      form.style.display = 'block';
+    });
+  </script>
+  <script>
+    const createItems = () => {
+      const typeInput = document.querySelector('.input[type="addItamType"]');
+      const nameInput = document.querySelector('.input[type="addItemName"]');
+      const imageInput = document.querySelector('.input[type="addItemImage"]');
+      const priceInput = document.querySelector('.input[type="addItemPrice"]');
+
+      const type = typeInput.value;
+      const name = nameInput.value;
+      const image = imageInput.value;
+      const price = parseFloat(priceInput.value);
+
+      const newItem = { type, name, image, price };
+
+      fetch('/items/createItems', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newItem),
+      })
+        .then(response => response.json())
+        .then(createdItem => {
+          console.log(createdItem);
+          // Handle the response from the server
+        })
+        .catch(error => {
+          console.error(error);
+          // Handle any error that occurred during the request
+        });
+    };
+
+    // Add event listener to the submit button
+    const submitButton = document.querySelector('.submit');
+    submitButton.addEventListener('click', createItems);
+  </script>
+</body>
+
+</html>
