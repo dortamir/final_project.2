@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.pink-bar {
+    background-color: #63400481;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgba(211, 210, 210, 0.75), rgba(200, 198, 198, 0.75)), url(../image/backimage.jpg);
+    background-size: cover;
+    width: 100%;
+    margin: 70px auto 0;
+    text-align: center;
+    color: #fff;
+    overflow-y: scroll;
+    margin: 0 auto;
+}
+
+.navbar {
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 160px;
+    cursor: pointer;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #63400481;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    margin: 70px auto 0;
+    text-align: center;
+    color: #fff;
+}
+
+.content h1 {
+    font-size: 70px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(207, 204, 204, 0.7);
+}
+
+.content p {
+    margin: 10px auto;
+    margin-top: 10px;
+    font-weight: 100;
+    line-height: 25px;
+    text-shadow: 1px 1px 2px rgba(213, 210, 210, 0.7);
+}
+
+.contact-info {
+    margin-top: 40px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.logo-image {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.map-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+button {
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #63400481;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button span {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 0;
+    background: #63400481;
+    border-radius: 25px;
+    transition: 0.5s;
+    z-index: -1;
+}
+
+button:hover span {
+    width: 100%;
+}
+
+button:hover {
+    border: none;
+    background-color: #63400481;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #63400481;
+    border-radius: 5px;
+}
