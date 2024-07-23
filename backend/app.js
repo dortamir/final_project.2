@@ -191,6 +191,25 @@ const createApp = async function () {
       }
     });
 
+    app.get('/searchResult', async (req, res) => {
+      try {
+        const username = req.cookies.user ? req.cookies.user.username : null;
+  
+        const query = req.query.query; // Get the search query from the URL parameter "query"
+  
+        // Perform the search by querying the items with names that include the search query
+        const searchResults = await Item.find({ name: { $regex: query, $options: 'i' } });
+  
+        res.render('searchResult', { username, searchResults });
+      } catch (error) {
+        console.error('Failed to perform search:', error);
+        res.status(500).send('Failed to perform search');
+      }
+    });
+
+    app.get("/graf", (req, res) => {
+      res.render("graf");
+    });
 
 
 
