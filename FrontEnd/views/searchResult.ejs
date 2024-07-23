@@ -9,7 +9,7 @@
     <style>
       .banner {
         position: relative;
-        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../image/backimage.jpg);
+        background: linear-gradient(hsla(0, 2%, 81%, 0.75), rgba(203, 202, 202, 0.75)), url(../image/backimage.jpg);
         background-size: cover;
         background-position: center;
         width: 100vw;
@@ -51,7 +51,7 @@
         content: '';
         height: 3px;
         width: 0%;
-        background: #e85d9e;
+        background: #63400481;
         position: absolute;
         left: 0;
         bottom: -10px;
@@ -89,7 +89,7 @@
         margin: 20px 10px;
         border-radius: 25px;
         font-weight: bold;
-        border: 2px solid #e85d9e;
+        border: 2px solid #63400481;
         background: transparent;
         color: #fff;
         cursor: pointer;
@@ -98,7 +98,7 @@
       }
     
       span {
-        background: #e85d9e;
+        background: #63400481;
         height: 100%;
         width: 0;
         border-radius: 25px;
@@ -115,7 +115,7 @@
     
       button:hover {
         border: none;
-        color: #e85d9e;
+        color: #63400481;
       }
     
       .pink-bar {
@@ -123,7 +123,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #e85d9e;
+        background-color: #63400481;
         padding: 5px 0;
         text-align: center;
         font-size: 12px;
@@ -137,7 +137,7 @@
     
       .fa-shopping-cart {
         font-size: 24px;
-        color: #e85d9e;
+        color: #63400481;
       }
     
       .fa-shopping-cart:before {
@@ -180,7 +180,7 @@
   </div>
 
   <main>
-    <% if (username==='lian' ) { %>
+    <% if (username==='manager' ) { %>
       <button class="add-item-button" type="button">
         <span class="button__text">Add Item</span>
         <span class="button__icon"><svg class="svg" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
@@ -222,7 +222,7 @@
             <section id="fruits-container" class="card-container">
               <% searchResults.forEach(item=> { %>
                 <div class="card">
-                  <% if (username==='lian' ) { %>
+                  <% if (username==='manager' ) { %>
                     <button class="button" onclick="removeItem('<%= item._id %>')">
                       <span>Remove item</span>
                       <span>
@@ -243,10 +243,10 @@
                         <p class="text-title item-name">
                           <%= item.name %>
                         </p>
-                        <p class="text-body item-price">$<%= item.price %> per pound</p>
+                        <p class="text-body item-price">₪<%= item.price %> per shekel</p>
                         <div class="card-footer">
                           <div class="card-input">
-                            <label for="<%= item.name %>-weight">Weight (in pounds):</label>
+                            <label for="<%= item.name %>-weight">Amount</label>
                             <input type="number" id="<%= item.name %>-weight" name="<%= item.name %>-weight" min="0"
                               max="10" class="item-amount">
                           </div>
@@ -271,7 +271,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2023 Shuki's Yarkania. All rights reserved.</p>
+    <p>&copy; © 2024 Online Jewelry Store. All rights reserved.</p>
   </footer>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/backend/routes/orders.js"></script>

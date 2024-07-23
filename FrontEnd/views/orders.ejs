@@ -9,7 +9,7 @@
     <style>
     .banner {
       position: relative;
-      background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../image/backimage.jpg);
+      background: linear-gradient(hsla(0, 2%, 81%, 0.75), rgba(203, 202, 202, 0.75)), url(../image/backimage.jpg);
       background-size: cover;
       background-position: center;
       width: 100vw;
@@ -51,7 +51,7 @@
       content: '';
       height: 3px;
       width: 0%;
-      background: #e85d9e;
+      background: #63400481;
       position: absolute;
       left: 0;
       bottom: -10px;
@@ -89,7 +89,7 @@
       margin: 20px 10px;
       border-radius: 25px;
       font-weight: bold;
-      border: 2px solid #e85d9e;
+      border: 2px solid #63400481;
       background: transparent;
       color: #fff;
       cursor: pointer;
@@ -105,7 +105,7 @@
   
     button:hover {
       border: none;
-      color: #e85d9e;
+      color: #63400481;
     }
   
     .pink-bar {
@@ -113,7 +113,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #e85d9e;
+      background-color: #63400481;
       padding: 5px 0;
       text-align: center;
       font-size: 12px;
@@ -127,7 +127,7 @@
   
     .fa-shopping-cart {
       font-size: 24px;
-      color: #e85d9e;
+      color: #63400481;
     }
   
     .fa-shopping-cart:before {
@@ -240,7 +240,7 @@
                             <div class="col col-2" data-label="Product Name"></div>
                             <div class="col col-3" data-label="Price"></div>
                             <div class="col col-4" data-label="Amount"></div>
-                            <div class="col col-total" data-label="Total Price">Total: <%= total.toFixed(2) %> $</div>
+                            <div class="col col-total" data-label="Total Price">Total: <%= total.toFixed(2) %> ₪</div>
                         </li>
                         <% } %>
                             <% } else { %>
@@ -271,7 +271,7 @@
                         <div class="content">
                             <span class="title">Order validated!</span>
                             <p class="message">Thank you for your purchase. Your order will be delivered within 2 days
-                                of your
+                                from your
                                 purchase.</p>
                         </div>
                         <div class="actions">
