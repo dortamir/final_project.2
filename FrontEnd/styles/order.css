@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../image/backimage.jpg);
+  background: linear-gradient(hsla(0, 2%, 81%, 0.75), rgba(203, 202, 202, 0.75)), url(../image/backimage.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -11,7 +11,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  
+
 }
 
 .back-to-home-btn img {
@@ -89,7 +89,7 @@ main {
   position: fixed;
   bottom: 450px;
   right: 958px;
-  --green:#e85d9e;
+  --green: #63400481;
   font-size: 15px;
   padding: 0.7em 2.7em;
   letter-spacing: 0.06em;
@@ -428,7 +428,7 @@ h2 small {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
- /* background-image: linear-gradient(gold, gold);*/
+  /* background-image: linear-gradient(gold, gold);*/
   background-size: 100% 10px;
   background-repeat: no-repeat;
   background-position: 100% 0%;
@@ -701,6 +701,7 @@ h2 small {
   margin-top: 5px;
   font-size: 12px;
 }
+
 .seaBody {
   display: flex;
   justify-content: center;
@@ -738,7 +739,7 @@ h2 small {
 #no-items-message::before {
   animation: floatAbove 3.5s ease-in-out infinite;
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
-          clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
 }
 
 #no-items-message::after {
@@ -747,14 +748,14 @@ h2 small {
   transform: translate(-50%, -50%) rotateX(21deg);
   animation: floatBelow 3.5s ease-in-out infinite;
   -webkit-clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
-          clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
 }
 
 @keyframes floatAbove {
   50% {
     transform: translate(-50%, -60%);
     -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
-            clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
   }
 }
 
@@ -762,9 +763,10 @@ h2 small {
   50% {
     transform: translate(-50%, -60%) rotateX(10deg);
     -webkit-clip-path: polygon(0% 60%, 100% 60%, 100% 100%, 0% 100%);
-            clip-path: polygon(0% 60%, 100% 60%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 60%, 100% 60%, 100% 100%, 0% 100%);
   }
 }
+
 button.delete {
   width: 120px;
   height: 40px;
@@ -826,16 +828,16 @@ button.delete:active span.icon svg {
   transform: scale(0.8);
 }
 
- .welcomeMessageText {
-   color: #f0e9e9;
-   font-family: "Times New Roman",
-     Times,
-     serif;
- }
+.welcomeMessageText {
+  color: #f0e9e9;
+  font-family: "Times New Roman",
+    Times,
+    serif;
+}
 
-         .checkout-button {
-           position: fixed;
-           bottom: 20px;
-           right: 20px;
-           z-index: 9999;
-         }
+.checkout-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}

@@ -16,7 +16,7 @@
     height: 100vh;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(rgba(211, 210, 210, 0.75), rgba(200, 198, 198, 0.75)), url(../image/backimage.jpg);
+    background: linear-gradient(hsla(0, 2%, 81%, 0.75), rgba(203, 202, 202, 0.75)), url(../image/backimage.jpg);
     background-size: cover;
     width: 100%;
     margin: 70px auto 0;

@@ -1,7 +1,7 @@
 body {
  
   padding: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../image/backimage.jpg);
+  background: linear-gradient(hsla(0, 2%, 81%, 0.75), rgba(203, 202, 202, 0.75)), url(../image/backimage.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -103,7 +103,7 @@ main {
   display: flex;
   align-items: center;
   padding: 4px 10px;
-  background-color: #ffcaa6;
+  background-color: #63400481;
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
