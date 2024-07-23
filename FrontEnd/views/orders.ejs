@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" type="text/css" href="/styles/order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+    .banner {
+      position: relative;
+      background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../image/backimage.jpg);
+      background-size: cover;
+      background-position: center;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
+  
+    .navbar {
+      width: 85%;
+      margin: auto;
+      padding: 35px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    .logo {
+      width: 160px;
+      cursor: pointer;
+    }
+  
+    .navbar ul li {
+      list-style: none;
+      display: inline-block;
+      margin: 0 20px;
+      position: relative;
+    }
+  
+    .navbar ul li a {
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+    }
+  
+    .navbar ul li::after {
+      content: '';
+      height: 3px;
+      width: 0%;
+      background: #e85d9e;
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      transition: 0.5s;
+    }
+  
+    .navbar ul li:hover::after {
+      width: 100%;
+    }
+  
+    .content {
+      width: 100%;
+      margin: 70px auto 0;
+      text-align: center;
+      color: #fff;
+    }
+  
+    .content h1 {
+      font-size: 70px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+  
+    .content p {
+      margin: 10px auto;
+      margin-top: 10px;
+      font-weight: 100;
+      line-height: 25px;
+    }
+  
+    button {
+      width: 200px;
+      padding: 15px 0;
+      text-align: center;
+      margin: 20px 10px;
+      border-radius: 25px;
+      font-weight: bold;
+      border: 2px solid #e85d9e;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+  
+
+  
+    button:hover span {
+      width: 100%;
+    }
+  
+    button:hover {
+      border: none;
+      color: #e85d9e;
+    }
+  
+    .pink-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #e85d9e;
+      padding: 5px 0;
+      text-align: center;
+      font-size: 12px;
+      z-index: 9999;
+      opacity: 0.9;
+    }
+  
+    .free-shipping {
+      margin: 0;
+    }
+  
+    .fa-shopping-cart {
+      font-size: 24px;
+      color: #e85d9e;
+    }
+  
+    .fa-shopping-cart:before {
+      content: "\f07a";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-style: normal;
+    }
+  
+    button.new {
+      margin-top: -10px;
+    }
+
+
+
+        .card-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .checkout-button {
+            position: absolute;
+        }
+    </style>
+</head>
+        <div class="pink-bar">
+            <p class="free-shipping">Free Shipping on orders over 199₪</p>
+        </div>
+        
+        <div class="banner">
+            <div class="navbar">
+            <li><a href="/graf"><img src="/image/updatelogo.png" class="logo"></a></li>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/Necklaces">Necklaces</a></li>
+                    <li><a href="/Rings">Rings</a></li>
+                    <li><a href="/Bracelets">Bracelets</a></li>
+                    <li><a href="/earrings">Earrings</a></li>
+                    <li><a href="/orders"><i class="fas fa-shopping-cart"></i></a></li>
+                </ul>
+            </div>
+
+<a href="/" class="back-to-home-btn">
+    
+</a>
+<header>
+    <div class="container">
+        <div class="logo-container">
+            
+        </div>
+    </div>
+
+    <body>
+
+</header>
+<% if (username) { %>
+    <div class="welcome-message">
+        <span class="welcomeMessageText">Hi, <%= username %></span>
+    </div>
+
+ 
+
+    <div class="table-container">
+        <ul class="responsive-table">
+            </li>
+            <% if (Array.isArray(items.items)) { %>
+                <li class="table-header">
+                    <div class="col col-2" style="margin-left: -10px;">Product Name</div>
+                    <div class="col col-3" style="margin-left: -120px;">Price</div>
+                    <div class="col col-4" style="margin-left: -120px;">Amount</div>
+                    <div class="col col-5" data-label="Total Price"></div>
+                    <% let total=0; %>
+                        <% items.items.forEach(item=> { %>
+                            <% total +=item.price * item.quantity; %>
+                <li class="table-row">
+                    <div class="col col-2" data-label="Product Name">
+                        <%= item.name %>
+                    </div>
+                    <div class="col col-3" data-label="Price">
+                        <%= item.price %> $
+                    </div>
+                    <div class="col col-4" data-label="Amount">
+                        <%= item.quantity %>
+                    </div>
+                    <div class="col col-5" style="text-decoration: underline;" data-label="Total Price">
+                        <%= (item.price * item.quantity).toFixed(2) %> $
+                    </div>
+                    <div class="col col-6" data-label="Delete">
+                        <button class="delete noselect" onclick="deleteItem('<%= item.name %>')" data-item-name="<%= item.name %>">
+                          <span class="text">Delete</span>
+                          <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                              <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path>
+                            </svg>
+                          </span>
+                        </button>
+                      </div>
+                      
+                </li>
+                <% }) %>
+                    <% if (items.items.length> 0) { %>
+                        <li class="table-row-total">
+                            <div class="col col-2" data-label="Product Name"></div>
+                            <div class="col col-3" data-label="Price"></div>
+                            <div class="col col-4" data-label="Amount"></div>
+                            <div class="col col-total" data-label="Total Price">Total: <%= total.toFixed(2) %> $</div>
+                        </li>
+                        <% } %>
+                            <% } else { %>
+                                <h2 class="seaBody" id="no-items-message" aria-label="No items yet!"></h2>
+                                <% } %>
+        </ul>
+    </div>
+
+    <main></main>
+    <% if (items.items) { %>
+
+        <button class="checkout-button">CHECKOUT</button>
+        <% } %>
+            <div id="card-container" class="card-container hidden">
+                <div class="card">
+                    <button class="dismiss" type="button">×</button>
+                    <div class="header">
+                        <div class="image">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path d="M20 7L9.00004 18L3.99994 13" stroke="#000000" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="content">
+                            <span class="title">Order validated!</span>
+                            <p class="message">Thank you for your purchase. Your order will be delivered within 2 days
+                                of your
+                                purchase.</p>
+                        </div>
+                        <div class="actions">
+                            <button class="history" type="button" onclick="redirectToHistory()">History</button>
+                            <button class="track" type="button" onclick="redirectToHome()">Continue Shopping</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="card-container2" class="card-container2 hidden">
+                <div class="card2">
+                    <button class="dismiss2" type="button">×</button>
+                    <div class="header">
+                        <div class="image">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M17 2H5C3.89543 2 3 2.89543 3 4V20C3 21.1046 3.89543 22 5 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2ZM17 20H5V8H17V20ZM17 6H5V4H17V6Z"
+                                    fill="#333333" />
+                                <path d="M7 10H15V12H7V10Z" fill="#333333" />
+                                <path d="M7 14H15V16H7V14Z" fill="#333333" />
+                            </svg>
+                        </div>
+                        <div class="title">Payment</div>
+                    </div>
+                    <div class="content">
+                        <div class="form-container2">
+                            <form id="payment-form">
+                                <div class="form-group">
+                                    <label for="card-number">Card Number</label>
+                                    <input type="text" id="card-number" maxlength="16" placeholder="**** **** **** ****"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="card-holder">Card Holder</label>
+                                    <input type="text" id="card-holder" placeholder="Card Holder" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiry-date">Expiry Date</label>
+                                        <input type="text" id="expiry-date" maxlength="5" placeholder="MM/YY" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV</label>
+                                        <input type="password" id="cvv" maxlength="3" placeholder="CVV" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="pay-button" id="pay-button"
+                                    onclick="saveOrderToDatabase()">PAY</button>
+                                <div id="error-message" class="error-message"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } else { %>
+                <div class="form-container">
+                    <h1 class="form-title">Welcome back!</h1>
+                    <div class="logo-container">
+                    </div>
+                    <div class="social-buttons">
+                        <button class="social-button facebook">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.001 2C6.47813 2 2.00098 6.47715 2.00098 12C2.00098 16.9913 5.65783 21.1283 10.4385 21.8785V14.8906H7.89941V12H10.4385V9.79688C10.4385 7.29063 11.9314 5.90625 14.2156 5.90625C15.3097 5.90625 16.4541 6.10156 16.4541 6.10156V8.5625H15.1931C13.9509 8.5625 13.5635 9.33334 13.5635 10.1242V12H16.3369L15.8936 14.8906H13.5635V21.8785C18.3441 21.1283 22.001 16.9913 22.001 12C22.001 6.47715 17.5238 2 12.001 2Z">
+                                </path>
+                            </svg>
+                            <span>Sign in with Facebook</span>
+                        </button>
+                        <button class="social-button apple">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.6734 7.2221C10.7974 7.2221 9.44138 6.2261 8.01338 6.2621C6.12938 6.2861 4.40138 7.3541 3.42938 9.0461C1.47338 12.4421 2.92538 17.4581 4.83338 20.2181C5.76938 21.5621 6.87338 23.0741 8.33738 23.0261C9.74138 22.9661 10.2694 22.1141 11.9734 22.1141C13.6654 22.1141 14.1454 23.0261 15.6334 22.9901C17.1454 22.9661 18.1054 21.6221 19.0294 20.2661C20.0974 18.7061 20.5414 17.1941 20.5654 17.1101C20.5294 17.0981 17.6254 15.9821 17.5894 12.6221C17.5654 9.8141 19.8814 8.4701 19.9894 8.4101C18.6694 6.4781 16.6414 6.2621 15.9334 6.2141C14.0854 6.0701 12.5374 7.2221 11.6734 7.2221ZM14.7934 4.3901C15.5734 3.4541 16.0894 2.1461 15.9454 0.850098C14.8294 0.898098 13.4854 1.5941 12.6814 2.5301C11.9614 3.3581 11.3374 4.6901 11.5054 5.9621C12.7414 6.0581 14.0134 5.3261 14.7934 4.3901Z">
+                                </path>
+                            </svg>
+                            <span>Sign in with Apple</span>
+                        </button>
+                    </div>
+                    <div class="line"></div>
+                    <form class="form" id="signInForm" action="/backend/routes/users.js" method="POST">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input required placeholder="Enter your username" name="username" id="username" type="text"
+                                value="<%= username %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input required name="password" placeholder="Enter your password" id="password"
+                                type="password">
+                        </div>
+                        <button type="submit" class="form-submit-btn" id="signInBtn" onclick="submitForm()">Sign
+                            In</button>
+
+                    </form>
+
+
+
+                    <p class="signup-link">
+                        Don't have an account?
+                        <a class="signup-link link" id="signup-link" href="/signup" alt="signup"> Sign up now</a>
+                    </p>
+                </div>
+                <% } %>
+                    <script src="/backend/routes/orders.js"></script>
+                    <script src="/backend/routes/users.js"></script>
+                    <script src="../doOrder.js"></script>
+                    <script src="/backend/app.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+                    <script src="userprofile.js"></script>
+                    <script>
+                        window.addEventListener('DOMContentLoaded', function () {
+                            document.getElementById('signInBtn').addEventListener('click', submitForm);
+                        });
+                        const checkoutButton = document.querySelector('.checkout-button');
+                        const payButton = document.querySelector('.pay-button');
+                        const cardContainer = document.getElementById('card-container');
+                        const cardContainer2 = document.getElementById('card-container2');
+                        const dismissButton = document.querySelector('.dismiss');
+                        const dismissButton2 = document.querySelector('.dismiss2');
+
+                        dismissButton.addEventListener('click', () => {
+                            cardContainer.classList.add('hidden');
+                        });
+
+                        dismissButton2.addEventListener('click', () => {
+                            cardContainer2.classList.add('hidden');
+                        });
+
+                        checkoutButton.addEventListener('click', () => {
+                            cardContainer2.classList.remove('hidden');
+                            cardContainer.classList.add('hidden');
+                        });
+
+                        payButton.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            cardContainer2.classList.add('hidden');
+                            cardContainer.classList.remove('hidden');
+                        });
+                        function redirectToHistory() {
+                            window.location.href = "/transaction_history";
+                        }
+                        function redirectToHome() {
+                            window.location.href = "/";
+                        }
+                    </script>
+                    <script>
+                        function hideCardContainer2() {
+                            cardContainer2.classList.add('hidden');
+                            cardContainer.classList.remove('hidden');
+                        }
+                    </script>
+                    <script>
+                        // Function to save the order to the database
+                        function saveOrderToDatabase() {
+                            console.log('saveOrderToDatabase called');
+
+                            // Retrieve the order data from the cookies
+                            const orderCookie = getCookie('order');
+                            console.log('order: ', orderCookie);
+                            // Parse the order data as JSON
+                            const sanitizedOrderCookie = orderCookie.startsWith('j:') ? orderCookie.slice(2) : orderCookie;
+                            let orderData;
+                            try {
+                                orderData = JSON.parse(sanitizedOrderCookie);
+                            } catch (error) {
+                                console.error('Invalid order data');
+                                return;
+                            }
+
+
+                            // Send the order data to the server to save in the database
+                            fetch('/orders/submitOrder', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(orderData) // Include the order data in the request body
+                            })
+                                .then(response => response.json())
+                                .then(data => {
+                                    console.log(data); // Handle the response
+                                })
+                                .catch(error => {
+                                    console.error(error); // Handle the error response
+                                });
+                        }
+
+                        function getCookie(name) {
+                            const cookieString = decodeURIComponent(document.cookie);
+                            const cookies = cookieString.split(';');
+
+                            for (let i = 0; i < cookies.length; i++) {
+                                const cookie = cookies[i].trim();
+                                if (cookie.startsWith(name + '=')) {
+                                    return cookie.substring(name.length + 1);
+                                }
+                            }
+
+                            return '';
+                        }
+
+                    </script>
+
+
+
+                    </body>
+
+</html>
