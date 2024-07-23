@@ -235,5 +235,6 @@ const createApp = async function () {
     }
   });
 
-
+  return app;
 }
+module.exports = { db, createApp };
