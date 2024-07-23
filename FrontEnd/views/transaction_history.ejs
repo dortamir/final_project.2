@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Transaction History</title>
+  <link rel="stylesheet" type="text/css" href="/styles/transaction-history.css">
+</head>
+
+<body>
+  <% if (username) { %>
+    <div class="welcome-message">
+      <span class="welcomeMessageText">Hi, <%= username %></span>
+    </div>
+  <% } %>
+
+  <header>
+
+  </header>
+  <div class="accordion" id="accordionPanelsStayOpenExample">
+    <% if (orders.length > 0) { %>
+      <% orders.forEach((order, index) => { %>
+        <% let totalPrice = 0; %>
+        <% order.items.forEach(item => { %>
+          <% totalPrice += item.price * item.quantity; %>
+        <% }) %>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading<%= index %>">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>" aria-expanded="true" aria-controls="collapse<%= index %>">
+              Order ID: <%= order.id %><br><br>Ordered by: <%= order.user %><br><br>Total Items: <%= order.items.length %>,   Total Price: <%= totalPrice.toFixed(2) %>$
+            </button>
+          </h2>
+          <div id="collapse<%= index %>" class="accordion-collapse collapse<%= index === 0 ? ' show' : '' %>" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionPanelsStayOpenExample">
+            <div class="accordion-body">
+              <% order.items.forEach(item => { %>
+                <div>Item: <%= item.name %>, Price: <%= item.price %>$, Quantity: <%= item.quantity %></div>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>No transaction history found.</p>
+    <% } %>
+  </div>
+
+  <!-- Add Bootstrap JS scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+  <script src="/backend/routes/carts.js"></script>
+</body>
+
+</html>
