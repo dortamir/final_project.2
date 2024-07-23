@@ -222,7 +222,7 @@ const createApp = async function () {
       const username = req.cookies.user ? req.cookies.user.username : null;
 
       let orders = [];
-      if (username === 'lian') {
+      if (username === 'manager') {
         orders = await Order.find({}).sort({ transactionDate: -1 });
       } else {
         orders = await Order.find({ user: username }).sort({ transactionDate: -1 });

@@ -46,11 +46,14 @@
  }
 
  .card {
-     background-color: #f9f9f9;
+     background-color: #c3b6a4;
      border-radius: 8px;
      padding: 20px;
      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
      position: relative;
+     align-items: center;
+     display: flex;
+     flex-direction: column;
  }
 
  .card-img img {
@@ -92,23 +95,23 @@
  }
 
  .card-input input {
-     width: 60px;
-     height: 24px;
-     border: 1px solid #ddd;
-     border-radius: 4px;
-     padding: 4px;
-     font-size: 12px;
- }
-
- .card-button {
-     display: flex;
-     align-items: center;
-     padding: 4px 10px;
-     background-color: #ffcaa6;
-     border-radius: 20px;
-     cursor: pointer;
-     transition: background-color 0.3s ease;
- }
+    width: 60px;
+    height: 17px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    font-size: 12px;
+  }
+  
+  .card-button {
+    display: flex;
+    align-items: center;
+    padding: 14px 10px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
 
  .card-button svg {
      width: 14px;
@@ -144,8 +147,8 @@
  }
 
  .welcome-message {
-     margin-top: -250px;
-     margin-left: -350px;
+    margin-top: -160px;
+    margin-left: -565px;
      font-family: 'Bebas Neue', cursive;
      font-size: 1.4em;
      position: absolute;
@@ -260,25 +263,30 @@
  }
 
  .add-item-button {
-     --main-focus: #2d8cf0;
-     --font-color: #323232;
-     --bg-color-sub: #dedede;
-     --bg-color: #eee;
-     --main-color: #323232;
-     position: relative;
-     width: 150px;
-     height: 40px;
-     cursor: pointer;
-     display: flex;
-     align-items: center;
-     border: 2px solid var(--main-color);
-     box-shadow: 4px 4px var(--main-color);
-     background-color: var(--bg-color);
-     border-radius: 10px;
-     overflow: hidden;
-     margin-left: 30px;
-    margin-top: 7%;
- }
+    --main-focus: #2d8cf0;
+    position: relative;
+    width: 150px;
+    cursor: pointer;
+    align-items: center;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 8%;
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #63400481;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+}
 
  .add-item-button,
  .add-item-button__icon,

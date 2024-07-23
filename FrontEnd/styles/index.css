@@ -319,6 +319,7 @@ video {
 .content p {
   margin: 35px;
   margin-top: 10px;
+  margin-bottom: 50px;
   font-weight: 100;
   line-height: 25px;
 }
@@ -395,6 +396,9 @@ button.new {
 .form-control {
   max-width: 120px;
   height: 25 px;
+  padding: 5px;
+    border-radius: 10px;
+    border: 1px;
 }
 
 
@@ -403,12 +407,12 @@ button.new {
   border-width: 10px;
   border: 0px solid;
   width: 23px;
-
 }
 
 .search-button {
   height: 19px;
   width: 19px;
+  margin-bottom: -5px;
 }
 
 .coמtent {

@@ -214,13 +214,13 @@
                         <%= item.name %>
                     </div>
                     <div class="col col-3" data-label="Price">
-                        <%= item.price %> $
+                        <%= item.price %> ₪
                     </div>
                     <div class="col col-4" data-label="Amount">
                         <%= item.quantity %>
                     </div>
                     <div class="col col-5" style="text-decoration: underline;" data-label="Total Price">
-                        <%= (item.price * item.quantity).toFixed(2) %> $
+                        <%= (item.price * item.quantity).toFixed(2) %> ₪
                     </div>
                     <div class="col col-6" data-label="Delete">
                         <button class="delete noselect" onclick="deleteItem('<%= item.name %>')" data-item-name="<%= item.name %>">
