@@ -211,6 +211,29 @@ const createApp = async function () {
       res.render("graf");
     });
 
+    
+  app.get('/store_map', (req, res) => {
+    const username = req.cookies.user ? req.cookies.user.username : null; // Retrieve the 'username' cookie value if available
+    res.render('store_map', { username });
+  });
+
+  app.get('/transaction_history', async (req, res) => {
+    try {
+      const username = req.cookies.user ? req.cookies.user.username : null;
+
+      let orders = [];
+      if (username === 'lian') {
+        orders = await Order.find({}).sort({ transactionDate: -1 });
+      } else {
+        orders = await Order.find({ user: username }).sort({ transactionDate: -1 });
+      }
+
+      res.render('transaction_history', { username, orders });
+    } catch (error) {
+      console.error('Failed to fetch transaction history:', error);
+      res.status(500).send('Failed to fetch transaction history');
+    }
+  });
 
 
 }
