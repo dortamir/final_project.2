@@ -161,7 +161,7 @@
     </style>
 </head>
         <div class="pink-bar">
-            <p class="free-shipping">Free Shipping on orders over 199₪</p>
+            <p class="free-shipping">Free Shipping on orders over 199$</p>
         </div>
         
         <div class="banner">
@@ -214,13 +214,13 @@
                         <%= item.name %>
                     </div>
                     <div class="col col-3" data-label="Price">
-                        <%= item.price %> ₪
+                        <%= item.price %> $
                     </div>
                     <div class="col col-4" data-label="Amount">
                         <%= item.quantity %>
                     </div>
                     <div class="col col-5" style="text-decoration: underline;" data-label="Total Price">
-                        <%= (item.price * item.quantity).toFixed(2) %> ₪
+                        <%= (item.price * item.quantity).toFixed(2) %> $
                     </div>
                     <div class="col col-6" data-label="Delete">
                         <button class="delete noselect" onclick="deleteItem('<%= item.name %>')" data-item-name="<%= item.name %>">
@@ -240,7 +240,7 @@
                             <div class="col col-2" data-label="Product Name"></div>
                             <div class="col col-3" data-label="Price"></div>
                             <div class="col col-4" data-label="Amount"></div>
-                            <div class="col col-total" data-label="Total Price">Total: <%= total.toFixed(2) %> ₪</div>
+                            <div class="col col-total" data-label="Total Price">Total: <%= total.toFixed(2) %> $</div>
                         </li>
                         <% } %>
                             <% } else { %>
