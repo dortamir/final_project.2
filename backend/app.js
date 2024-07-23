@@ -180,6 +180,16 @@ const createApp = async function () {
       res.render('orders', { username, items });
     });
   
+    app.post('/items/delete', async (req, res) => {
+      try {
+        const itemId = req.body.Item.itemId;
+        await Item.findByIdAndDelete(itemId);
+        res.sendStatus(200);
+      } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+      }
+    });
 
 
 
