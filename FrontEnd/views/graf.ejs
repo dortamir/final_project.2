@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graph Page</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" type="text/css" href="/styles/Necklaces.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+    .banner {
+        position: relative;
+        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../image/backimage.jpg);
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+
+    .navbar {
+        width: 85%;
+        margin: auto;
+        padding: 35px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 160px;
+        cursor: pointer;
+    }
+
+    .navbar ul li {
+        list-style: none;
+        display: inline-block;
+        margin: 0 20px;
+        position: relative;
+    }
+
+    .navbar ul li a {
+        text-decoration: none;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    .navbar ul li::after {
+        content: '';
+        height: 3px;
+        width: 0%;
+        background: #e85d9e;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        transition: 0.5s;
+    }
+
+    .navbar ul li:hover::after {
+        width: 100%;
+    }
+
+    .content {
+        width: 100%;
+        margin: 70px auto 0;
+        text-align: center;
+        color: #fff;
+    }
+
+    .content h1 {
+        font-size: 70px;
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+
+    .content p {
+        margin: 10px auto;
+        margin-top: 10px;
+        font-weight: 100;
+        line-height: 25px;
+    }
+
+    button {
+        width: 200px;
+        padding: 15px 0;
+        text-align: center;
+        margin: 20px 10px;
+        border-radius: 25px;
+        font-weight: bold;
+        border: 2px solid #e85d9e;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+
+
+    button:hover span {
+        width: 100%;
+    }
+
+    button:hover {
+        border: none;
+        color: #e85d9e;
+    }
+
+    .pink-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #e85d9e;
+        padding: 5px 0;
+        text-align: center;
+        font-size: 12px;
+        z-index: 9999;
+        opacity: 0.9;
+    }
+
+    .free-shipping {
+        margin: 0;
+    }
+
+    .fa-shopping-cart {
+        font-size: 24px;
+        color: #e85d9e;
+    }
+
+    .fa-shopping-cart:before {
+        content: "\f07a";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-style: normal;
+    }
+
+    button.new {
+        margin-top: -10px;
+    }
+
+  .we {
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 50px;
+  }
+
+    .graphs-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 85%;
+    margin: auto;
+    padding-top: 40px;
+  }
+
+  .graph-item {
+    width: 100%; /* שניתן לשנות את הרוחב לפי הצורך */
+    margin-bottom: 30px;
+  }
+</style>
+</head>
+<body>
+
+    
+
+    
+  <h1 class="we">We Data:</h1>
+  
+  <div>
+  <div style="width: 60%;">
+    <canvas id="ordersChart"></canvas>
+  </div>
+<br>
+<br>
+
+  <div style="width: 60%;">
+    <canvas id="newProductsChart"></canvas>
+  </div>
+
+<br>
+<br>
+
+<div style="width: 60%;">
+    <canvas id="usersChart"></canvas>
+</div>
+
+<br>
+<br>
+
+<div style="width: 60%;">
+    <canvas id="monthlyOrdersData"></canvas>
+</div>
+
+
+</div>
+
+
+
+  <script>
+
+    const black = 'rgba(0, 0, 0, 0.8)';
+    const fuchsia = '#e85d9e';
+    const white='#fff';
+
+    // Sample data for orders, users, and new products
+    const ordersData = {
+      labels: ['2017','2018','2019','2020','2021','2022', '2023'],
+      datasets: [{
+        label: 'Orders per Year',
+        data: [200, 300,150,220,340,179,250],
+        backgroundColor: fuchsia,
+        borderColor: white,
+        borderWidth: 3
+      }]
+    };
+
+
+
+    const newProductsData = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      datasets: [{
+        label: 'New Products per Month',
+        data: [10, 15, 12, 8, 20, 18, 17, 19, 14, 11, 16, 22],
+        backgroundColor: white,
+        borderColor: 'fuchsia',
+        borderWidth: 1
+      }]
+    };
+
+        const usersData = {
+                labels: ['2017', '2018', '2019', '2020', '2021', '2022', '2023'],
+                datasets: [{
+                    label: 'Users per Year',
+                    data: [500, 600, 650, 760, 540, 700, 590],
+                    backgroundColor: white,
+                    borderColor: fuchsia,
+                    borderWidth: 3
+                }]
+            };
+
+    
+    // Create charts
+    const ordersCtx = document.getElementById('ordersChart').getContext('2d');
+    new Chart(ordersCtx, {
+        type: 'bar',
+        data: ordersData,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Orders per Year',
+                    font: {
+                        size: 20 // כאן אתה יכול לשנות את גודל הגופן
+                    }
+                }
+            }
+        }
+    });
+
+
+
+
+    const newProductsCtx = document.getElementById('newProductsChart').getContext('2d');
+    new Chart(newProductsCtx, {
+        type: 'line',
+        data: newProductsData,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'New Products per Month',
+                    font: {
+                        size: 20 // כאן אתה יכול לשנות את גודל הגופן
+                    }
+                }
+            }
+        }
+    });
+
+     const usersCtx = document.getElementById('usersChart').getContext('2d');
+        new Chart(usersCtx, {
+            type: 'bar',
+            data: usersData,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Users per Year',
+                        font: {
+                            size: 20 // כאן אתה יכול לשנות את גודל הגופן
+                        }
+                    }
+                }
+            }
+        });
+
+
+    // נתוני הזמנות פר חודש
+        const monthlyOrdersData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Orders per Month',
+                data: [100, 120, 130, 110, 140, 150, 160, 170, 180, 190, 200, 210],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // נתוני יוזרים פר חודש
+        const monthlyUsersData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Users per Month',
+                data: [200, 220, 240, 230, 260, 270, 280, 290, 300, 320, 330, 350],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // יצירת הגרפים
+        const monthlyOrdersCtx = document.getElementById('monthlyOrdersChart').getContext('2d');
+        new Chart(monthlyOrdersCtx, {
+            type: 'line',
+            data: monthlyOrdersData,
+        });
+
+        const monthlyUsersCtx = document.getElementById('monthlyUsersChart').getContext('2d');
+        new Chart(monthlyUsersCtx, {
+            type: 'line',
+            data: monthlyUsersData,
+            
+        });
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
