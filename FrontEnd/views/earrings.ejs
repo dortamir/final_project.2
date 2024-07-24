@@ -140,6 +140,90 @@
         button.new {
             margin-top: -10px;
         }
+        .filter-container {
+    margin: 20px auto;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .filter-container form {
+    display: inline-block;
+  }
+  
+  .filter-container label {
+    margin-right: 10px;
+  }
+  
+  .filter-container input {
+    margin-right: 10px;
+    padding: 5px;
+  }
+  
+  .filter-container button {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #63400481;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+
+
+   /* Style the dropdown button */
+   .dropbtn {
+            /*background-color: #4CAF50;*/
+            color: #63400481;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Container for the dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            padding: 5px;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+            color: #63400481;
+        }
+
+
     </style>
 </head>
 
@@ -169,6 +253,26 @@
     </div>
 
 <main>
+    <div class="filter-container">
+        <form id="filter-form">
+            <label for="min-price">Min Price:</label>
+            <input type="number" id="min-price" name="min-price" min="0" step="0.01">
+  
+            <label for="max-price">Max Price:</label>
+            <input type="number" id="max-price" name="max-price" min="0" step="0.01">
+  
+            <div class="dropdown">
+                <button type="button" class="dropbtn">FILTER</button>
+                <div class="dropdown-content">
+                  <a href="#" onclick="filterItemsByPrice()">Price < 100$</a>
+                  <a href="#" onclick="filterItemsByPriceMax()">Price > 100$</a>
+                    <a href="#" onclick="filterItemsByName('GOLD')">Gold</a>
+                    <a href="#" onclick="filterItemsByName('SILVER')">Silver</a>
+                    <!-- Add more filter options here if needed -->
+                </div>
+            </div>
+        </form>
+    </div>
     <% if (username==='manager' ) { %>
         <button class="add-item-button" type="button">
             <span class="button__text">Add Item</span>
@@ -358,12 +462,73 @@
                     alert('Failed to delete item');
                 }
             })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Failed to delete item');
-            });
+           
         }
         </script>
+        <script>
+
+            function filterItemsByPrice() {
+                      const minPrice = 100;
+            
+                      console.log(`Min Price: ${minPrice}`);
+            
+                      const items = Array.from(document.querySelectorAll('.card'));
+            
+                      const filteredItems = items.filter(item => {
+                          const priceText = item.querySelector('.item-price').textContent;
+                          const price = parseFloat(priceText.replace('$', '').replace(' per pound', ''));
+                          return price < minPrice;
+                      });
+            
+                      filteredItems.sort((a, b) => {
+                          const priceA = parseFloat(a.querySelector('.item-price').textContent.replace('$', '').replace(' per pound', ''));
+                          const priceB = parseFloat(b.querySelector('.item-price').textContent.replace('$', '').replace(' per pound', ''));
+                          return priceA - priceB;
+                      });
+            
+                      items.forEach(item => item.style.display = 'none');
+            
+                      filteredItems.forEach(item => item.style.display = 'block');
+                  }
+            
+                  function filterItemsByPriceMax() {
+                      const maxPrice = 100;
+            
+                      console.log(`Max Price: ${maxPrice}`);
+            
+                      const items = Array.from(document.querySelectorAll('.card'));
+            
+                      const filteredItems = items.filter(item => {
+                          const priceText = item.querySelector('.item-price').textContent;
+                          const price = parseFloat(priceText.replace('$', '').replace(' per pound', ''));
+                          return price > maxPrice;
+                      });
+            
+                      filteredItems.sort((a, b) => {
+                          const priceA = parseFloat(a.querySelector('.item-price').textContent.replace('$', '').replace(' per pound', ''));
+                          const priceB = parseFloat(b.querySelector('.item-price').textContent.replace('$', '').replace(' per pound', ''));
+                          return priceA - priceB;
+                      });
+            
+                      items.forEach(item => item.style.display = 'none');
+            
+                      filteredItems.forEach(item => item.style.display = 'block');
+                  }
+            
+            function filterItemsByName(keyword) {
+              const items = Array.from(document.querySelectorAll('.card'));
+            
+              const filteredItems = items.filter(item => {
+                  const itemName = item.querySelector('.item-name').textContent.toLowerCase();
+                  return itemName.includes(keyword.toLowerCase());
+              });
+            
+              items.forEach(item => item.style.display = 'none');
+            
+              filteredItems.forEach(item => item.style.display = 'block');
+            }
+            
+            </script>
 
 </body>
 
