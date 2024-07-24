@@ -56,9 +56,20 @@ exports.updateItem = async (req, res) => {
 
 };
 
-
-
-
+exports.deleteItem = async (req, res) => {
+  try {
+      const itemId = req.body.itemId;
+      console.log('Received request to delete item with ID:', itemId);
+      const item = await Item.findByIdAndDelete(itemId);
+      if (!item) {
+          console.log('Item not found');
+          return res.status(404).json({ message: "Item not found" });
+      }
+  } catch (err) {
+      console.error('Error deleting item:', err);
+      res.status(500).json({ error: err.message });
+  }
+};
 
 
 exports.getItemsByType = async (req, res) => {
