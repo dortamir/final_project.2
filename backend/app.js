@@ -15,6 +15,10 @@ const createApp = async function () {
   app.use(require("./routes/users"));
   app.use(require("./routes/items"));
   app.use(require("./routes/orders"));
+  app.get('/custList', (req, res) => {
+    res.render('custList'); 
+  });
+  
   app.use(session({
     secret: 'your-secret-key', // Replace with your own secret key
     resave: false,
