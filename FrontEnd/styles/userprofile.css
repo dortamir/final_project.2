@@ -347,12 +347,20 @@ button.new {
 .form-control {
   max-width: 120px;
   height: 25 px;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px;
+}
+
+.search-button {
+  height: 19px;
+  width: 19px;
+  margin-bottom: -5px;
 }
 
 .btn {
-  max-width: 80px;
   background-color: transparent;
-  color: white;
-  border-color: #63400481;
-  border-width: 2px;
+  border-width: 10px;
+  border: 0px solid;
+  width: 23px;
 }
