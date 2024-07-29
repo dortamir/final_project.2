@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Customer List</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+    </style>
 </head>
 <body>
-    <h1>shani</h1>
+    <h1>Customer List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% customers.forEach(function(customer) { %>
+            <tr>
+                <td><%= customer.username %></td>
+                <td><%= customer.email %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
 </body>
 </html>

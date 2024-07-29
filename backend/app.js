@@ -6,6 +6,7 @@ const session = require('express-session');
 const path = require('path');
 const Item = require('./utils/db_utils/models').Item;
 const Order = require('./utils/db_utils/models').Order;
+const User = require('./utils/db_utils/models').User; 
 
 const createApp = async function () {
   const app = express();
@@ -15,9 +16,7 @@ const createApp = async function () {
   app.use(require("./routes/users"));
   app.use(require("./routes/items"));
   app.use(require("./routes/orders"));
-  app.get('/custList', (req, res) => {
-    res.render('custList'); 
-  });
+
   
   app.use(session({
     secret: 'your-secret-key', // Replace with your own secret key
@@ -210,6 +209,20 @@ const createApp = async function () {
         res.status(500).send('Failed to perform search');
       }
     });
+    app.get('/custList', async (req, res) => {
+      try {
+        console.log('Fetching customers from database...'); // לוג לפני שליפת הנתונים
+        const customers = await User.find().exec();
+        console.log('Customers fetched:', customers); // לוג אחרי שליפת הנתונים
+        res.render('custList', { customers });
+      } catch (error) {
+        console.error('Error fetching customers:', error); // לוג במקרה של שגיאה
+        res.status(500).send('Failed to fetch customers');
+      }
+    });
+    
+    
+    
 
     app.get("/graf", (req, res) => {
       res.render("graf");
