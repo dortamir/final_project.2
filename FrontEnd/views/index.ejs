@@ -95,6 +95,9 @@
               <% if (username==='manager' ) { %>
               <a href="/custList"><button>Customer List</button></a>
               <% } %>
+              <% if (username) { %>
+                <a href="/transaction_history"><button class=" new" type="button"><span></span>History Orders</button></a>
+              <% } %>
             </div>
 
 
