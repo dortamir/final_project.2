@@ -1,5 +1,33 @@
 const models = require('../utils/db_utils/models');
 const Item = models.Item;
+const axios = require('axios'); 
+
+
+// Replace 'your-page-access-token' with your actual access token
+const pageAccessToken = 'EAAMLg1FI27gBOz932JvXPPtVcLTHK2pcwLWZASZAFeK6ZAMhenbBv4eaZAKloHIicoMik54fCzgwEwRcVUzXOyqy0jL8QoxznUYrbw4NiXNiSnzLPN62ljt64ae5uvHigHrzoQr4p2UzbZB5uKG1Qrew4YCYZC918vgKhuTv0Dbu0Rh5fbZCzNmdhm8ecCf6RyLcGK0fVmzPDZCVFIluCOn6Qop1';
+const pageId = '397708486754151';
+
+// Function to post to Facebook
+const postToFacebook = async (product) => {
+ 
+  const message = `
+    New Product: ${product.name}
+    Price: $${product.price}
+    type: ${product.type}
+    image: ${product.image}
+  `;
+ 
+  try {
+    const response = await axios.post(`https://graph.facebook.com/${pageId}/feed`, {
+      message: message,
+      access_token: pageAccessToken
+    });
+    console.log('Successfully posted to Facebook:', response.data.id);
+  } catch (error) {
+    console.error('Error posting to Facebook:', error.response ? error.response.data : error.message);
+  }
+};
+ 
 
 //פונקציה ליצירת פריט חדש 
 exports.createItems = async (req, res) => {
@@ -7,6 +35,7 @@ exports.createItems = async (req, res) => {
         const { type, name, image, price } = req.body;
         const newItem = new Item({ type, name, image, price });
         const createdItem = await newItem.save();
+        await postToFacebook(createdItem);
         res.status(200).json(createdItem);
     } catch (err) {
         res.status(400).json({ error: err.message });
