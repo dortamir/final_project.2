@@ -6,253 +6,254 @@
   <title>Bracelets</title>
   <link rel="stylesheet" type="text/css" href="/styles/Bracelets.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-      .banner {
-        position: relative;
-        background: linear-gradient(hsla(0, 2%, 81%, 0.75), rgba(203, 202, 202, 0.75)), url(../image/backimage.jpg);
-        background-size: cover;
-        background-position: center;
-        width: 100vw;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        overflow: hidden;
-      }
-    
-      .navbar {
-        width: 85%;
-        margin: auto;
-        padding: 35px 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-    
-      .logo {
-        width: 160px;
-        cursor: pointer;
-      }
-    
-      .navbar ul li {
-        list-style: none;
-        display: inline-block;
-        margin: 0 20px;
-        position: relative;
-      }
-    
-      .navbar ul li a {
-        text-decoration: none;
-        color: #fff;
-        text-transform: uppercase;
-      }
-    
-      .navbar ul li::after {
-        content: '';
-        height: 3px;
-        width: 0%;
-        background: #63400481;
-        position: absolute;
-        left: 0;
-        bottom: -10px;
-        transition: 0.5s;
-      }
-    
-      .navbar ul li:hover::after {
-        width: 100%;
-      }
-    
-      .content {
-        width: 100%;
-        margin: 70px auto 0;
-        text-align: center;
-        color: #fff;
-      }
-    
-      .content h1 {
-        font-size: 70px;
-        margin-top: 40px;
-        margin-bottom: 10px;
-      }
-    
-      .content p {
-        margin: 10px auto;
-        margin-top: 10px;
-        font-weight: 100;
-        line-height: 25px;
-      }
-    
-      button {
-        width: 200px;
-        padding: 15px 0;
-        text-align: center;
-        
-        border-radius: 25px;
-        font-weight: bold;
-        border: 2px solid #63400481;
-        background: transparent;
-        color: #fff;
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
-      }
-    
+  <style>
+    .banner {
+      position: relative;
+      background: linear-gradient(hsla(0, 2%, 81%, 0.75), rgba(203, 202, 202, 0.75)), url(../image/backimage.jpg);
+      background-size: cover;
+      background-position: center;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
 
-    
-      button:hover span {
-        width: 100%;
-      }
-    
-      button:hover {
-        border: none;
-        color: #63400481;
-      }
-    
-      .pink-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #63400481;
-        padding: 5px 0;
-        text-align: center;
-        font-size: 12px;
-        z-index: 9999;
-        opacity: 0.9;
-      }
-    
-      .free-shipping {
-        margin: 0;
-      }
-    
-      .fa-shopping-cart {
-        font-size: 24px;
-        color: #63400481;
-      }
-    
-      .fa-shopping-cart:before {
-        content: "\f07a";
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        font-style: normal;
-      }
-    
-      button.new {
-        margin-top: -10px;
-      }
+    .navbar {
+      width: 85%;
+      margin: auto;
+      padding: 35px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-      .filter-container {
-    margin: 20px auto;
-    text-align: center;
-    color: #fff;
-  }
-  
-  .filter-container form {
-    display: inline-block;
-  }
-  
-  .filter-container label {
-    margin-right: 10px;
-  }
-  
-  .filter-container input {
-    margin-right: 10px;
-    padding: 5px;
-  }
-  
-  .filter-container button {
-    width: 200px;
-    padding: 15px 0;
-    text-align: center;
-    border-radius: 25px;
-    font-weight: bold;
-    border: 2px solid #63400481;
-    background: transparent;
-    color: #fff;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
+    .logo {
+      width: 160px;
+      cursor: pointer;
+    }
+
+    .navbar ul li {
+      list-style: none;
+      display: inline-block;
+      margin: 0 20px;
+      position: relative;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .navbar ul li::after {
+      content: '';
+      height: 3px;
+      width: 0%;
+      background: #63400481;
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      transition: 0.5s;
+    }
+
+    .navbar ul li:hover::after {
+      width: 100%;
+    }
+
+    .content {
+      width: 100%;
+      margin: 70px auto 0;
+      text-align: center;
+      color: #fff;
+    }
+
+    .content h1 {
+      font-size: 70px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      margin: 10px auto;
+      margin-top: 10px;
+      font-weight: 100;
+      line-height: 25px;
+    }
+
+    button {
+      width: 200px;
+      padding: 15px 0;
+      text-align: center;
+
+      border-radius: 25px;
+      font-weight: bold;
+      border: 2px solid #63400481;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
 
 
 
-   /* Style the dropdown button */
-   .dropbtn {
-            /*background-color: #4CAF50;*/
-            color: #63400481;
-            padding: 10px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
+    button:hover span {
+      width: 100%;
+    }
 
-        /* Container for the dropdown */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
+    button:hover {
+      border: none;
+      color: #63400481;
+    }
 
-        /* Dropdown Content (hidden by default) */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 185px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            padding: 5px;
-            border-radius: 15px;
-        }
+    .pink-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #63400481;
+      padding: 5px 0;
+      text-align: center;
+      font-size: 12px;
+      z-index: 9999;
+      opacity: 0.9;
+    }
 
-        /* Links inside the dropdown */
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
+    .free-shipping {
+      margin: 0;
+    }
 
-        /* Change color of dropdown links on hover */
-        .dropdown-content a:hover {background-color: #f1f1f1}
+    .fa-shopping-cart {
+      font-size: 24px;
+      color: #63400481;
+    }
 
-        /* Show the dropdown menu on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+    .fa-shopping-cart:before {
+      content: "\f07a";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-style: normal;
+    }
 
-        /* Change the background color of the dropdown button when the dropdown content is shown */
-        .dropdown:hover .dropbtn {
-            color: #63400481;
-        }
+    button.new {
+      margin-top: -10px;
+    }
 
-    </style>
+    .filter-container {
+      margin: 20px auto;
+      text-align: center;
+      color: #fff;
+    }
+
+    .filter-container form {
+      display: inline-block;
+    }
+
+    .filter-container label {
+      margin-right: 10px;
+    }
+
+    .filter-container input {
+      margin-right: 10px;
+      padding: 5px;
+    }
+
+    .filter-container button {
+      width: 200px;
+      padding: 15px 0;
+      text-align: center;
+      border-radius: 25px;
+      font-weight: bold;
+      border: 2px solid #63400481;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+
+
+    /* Style the dropdown button */
+    .dropbtn {
+      /*background-color: #4CAF50;*/
+      color: #63400481;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Container for the dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown Content (hidden by default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 185px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      padding: 5px;
+      border-radius: 15px;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+      background-color: #f1f1f1
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {
+      color: #63400481;
+    }
+  </style>
 </head>
 
 
 <body>
   <header>
-            <div class="pink-bar">
-              <p class="free-shipping">Free Shipping on orders over 199$</p>
-            </div>
-            
-            <div class="banner">
-              <div class="navbar">
-                <li><a href="/graf"><img src="/image/updatelogo.png" class="logo"></a></li>
-                <ul>
-                  <li><a href="/">Home</a></li>
-                  <li><a href="/Necklaces">Necklaces</a></li>
-                  <li><a href="/Rings">Rings</a></li>
-                  <li><a href="/Bracelets">Bracelets</a></li>
-                  <li><a href="/earrings">Earrings</a></li>
-                  <li><a href="/orders"><i class="fas fa-shopping-cart"></i></a></li>
-                </ul>
-              </div>
-    <a href="/" class="back-to-home-btn">
-      
-    </a>
+    <div class="pink-bar">
+      <p class="free-shipping">Free Shipping on orders over 199$</p>
+    </div>
+
+    <div class="banner">
+      <div class="navbar">
+        <li><a href="/graf"><img src="/image/updatelogo.png" class="logo"></a></li>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/Necklaces">Necklaces</a></li>
+          <li><a href="/Rings">Rings</a></li>
+          <li><a href="/Bracelets">Bracelets</a></li>
+          <li><a href="/earrings">Earrings</a></li>
+          <li><a href="/orders"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+      </div>
+      <a href="/" class="back-to-home-btn">
+
+      </a>
   </header>
   <div class="logo2-container">
-   
+
   </div>
 
   <br>
@@ -263,29 +264,29 @@
   <main>
     <div class="filter-container">
       <form id="filter-form">
-          <label for="min-price">Min Price:</label>
-          <input type="number" id="min-price" name="min-price" min="0" step="0.01">
+        <label for="min-price">Min Price:</label>
+        <input type="number" id="min-price" name="min-price" min="0" step="0.01">
 
-          <label for="max-price">Max Price:</label>
-          <input type="number" id="max-price" name="max-price" min="0" step="0.01">
+        <label for="max-price">Max Price:</label>
+        <input type="number" id="max-price" name="max-price" min="0" step="0.01">
 
-          <div class="dropdown">
-              <button type="button" class="dropbtn">FILTER</button>
-              <div class="dropdown-content">
-                <a href="#" onclick="filterItemsByPrice()">Price < 100$</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn">FILTER</button>
+          <div class="dropdown-content">
+            <a href="#" onclick="filterItemsByPrice()">Price < 100$</a>
                 <a href="#" onclick="filterItemsByPriceMax()">Price > 100$</a>
-                  <a href="#" onclick="filterItemsByName('GOLD')">Gold</a>
-                  <a href="#" onclick="filterItemsByName('SILVER')">Silver</a>
-                  <!-- Add more filter options here if needed -->
-              </div>
+                <a href="#" onclick="filterItemsByName('GOLD')">Gold</a>
+                <a href="#" onclick="filterItemsByName('SILVER')">Silver</a>
+                <!-- Add more filter options here if needed -->
           </div>
+        </div>
       </form>
-  </div>
+    </div>
 
     <% if (username==='manager' ) { %>
       <button class="add-item-button" type="button">
         <span class="button__text">ADD ITEM</span>
-          </svg></span>
+        </svg></span>
       </button>
       <form class="form add-item-form">
         <button class="dismiss" type="button">×</button>
@@ -294,88 +295,89 @@
         <label>
           <p>Item Type(Ring / Necklace / Bracelate/ Earrings)</p>
           <input required="" placeholder="" type="addItamType" class="input">
-          
+
         </label>
 
         <label>
           <p>Item Name</p>
           <input required="" placeholder="" type="addItemName" class="input">
-          
+
         </label>
 
         <label>
           <p>Price</p>
           <input required="" placeholder="" type="addItemPrice" class="input">
-          
+
         </label>
         <label>
           <p>Image(URL Address)</p>
           <input required="" placeholder="" type="addItemImage" class="input">
-          
+
         </label>
         <button class="submit">Submit</button>
       </form>
-        <a href="up" class="updatebut"><button>UPDATE</button></a>
+      <a href="up" class="updatebut"><button>UPDATE</button></a>
       <% } %>
-          <div class="cart-container">
-            <a href="/orders" class="cart-btn">
-              <img src="/assets/cart.png" alt="Cart" class="cart-img">
-            </a>
-            <span class="cart-text">Cart</span>
-            <br>
-            <br>
-            <br>
-            <br>
-          </div>
-            <section id="others-container" class="card-container">
-              <% Bracelets.forEach(item=> { %>
-                <div class="card">
-                  <% if (username==='manager' ) { %>
-                    <button class="button" onclick="deleteItem('<%= item._id %>')">
-                      <span>Remove item</span>
-                      <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-miterlimit="2"
-                          stroke-linejoin="round" fill-rule="evenodd" clip-rule="evenodd">
-                          <path fill-rule="nonzero"
-                            d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 1.5c-4.69 0-8.497 3.807-8.497 8.497s3.807 8.498 8.497 8.498 8.498-3.808 8.498-8.498-3.808-8.497-8.498-8.497zm0 7.425 2.717-2.718c.146-.146.339-.219.531-.219.404 0 .75.325.75.75 0 .193-.073.384-.219.531l-2.717 2.717 2.727 2.728c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.384-.073-.53-.219l-2.729-2.728-2.728 2.728c-.146.146-.338.219-.53.219-.401 0-.751-.323-.751-.75 0-.192.073-.384.22-.531l2.728-2.728-2.722-2.722c-.146-.147-.219-.338-.219-.531 0-.425.346-.749.75-.749.192 0 .385.073.531.219z">
-                          </path>
+        <div class="cart-container">
+          <a href="/orders" class="cart-btn">
+            <img src="/assets/cart.png" alt="Cart" class="cart-img">
+          </a>
+          <span class="cart-text">Cart</span>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
+        <section id="others-container" class="card-container">
+          <% Bracelets.forEach(item=> { %>
+            <div class="card">
+              <% if (username==='manager' ) { %>
+                <button class="button" onclick="deleteItem('<%= item._id %>')">
+                  <span>Remove item</span>
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-miterlimit="2"
+                      stroke-linejoin="round" fill-rule="evenodd" clip-rule="evenodd">
+                      <path fill-rule="nonzero"
+                        d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 1.5c-4.69 0-8.497 3.807-8.497 8.497s3.807 8.498 8.497 8.498 8.498-3.808 8.498-8.498-3.808-8.497-8.498-8.497zm0 7.425 2.717-2.718c.146-.146.339-.219.531-.219.404 0 .75.325.75.75 0 .193-.073.384-.219.531l-2.717 2.717 2.727 2.728c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.384-.073-.53-.219l-2.729-2.728-2.728 2.728c-.146.146-.338.219-.53.219-.401 0-.751-.323-.751-.75 0-.192.073-.384.22-.531l2.728-2.728-2.722-2.722c-.146-.147-.219-.338-.219-.531 0-.425.346-.749.75-.749.192 0 .385.073.531.219z">
+                      </path>
+                    </svg>
+                  </span>
+                </button>
+                <% } %>
+                  <div class="scale-background"></div>
+                  <div class="card-img">
+                    <img src="<%= item.image %>" alt="<%= item.name %>">
+                  </div>
+                  <div class="card-info">
+                    <p class="text-title item-name">
+                      <%= item.name %>
+                    </p>
+                    <p class="text-body item-price">$<%= item.price %>
+                    </p>
+                    <div class="card-footer">
+                      <div class="card-input">
+                        <label for="<%= item.name %>-weight">Amount</label>
+                        <input type="number" id="<%= item.name %>-weight" name="<%= item.name %>-weight" min="0"
+                          max="10" class="item-amount">
+                      </div>
+                      <div class="card-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-shopping-cart">
+                          <circle cx="9" cy="21" r="1"></circle>
+                          <circle cx="20" cy="21" r="1"></circle>
+                          <path d="M1 1h4l2.5 7h13m2 0v12h-16v-12m-2 0h20"></path>
                         </svg>
-                      </span>
-                    </button>
-                    <% } %>
-                      <div class="scale-background"></div>
-                      <div class="card-img">
-                        <img src="<%= item.image %>" alt="<%= item.name %>">
+                        <span class="add-to-order-btn"
+                          onclick="addToOrder('<%= item.name %>', '<%= item.price %>', document.getElementById('<%= item.name %>-weight').value)">Add
+                          to your Order</span>
                       </div>
-                      <div class="card-info">
-                        <p class="text-title item-name">
-                          <%= item.name %>
-                        </p>
-                        <p class="text-body item-price">$<%= item.price %></p>
-                        <div class="card-footer">
-                          <div class="card-input">
-                            <label for="<%= item.name %>-weight">Amount</label>
-                            <input type="number" id="<%= item.name %>-weight" name="<%= item.name %>-weight" min="0"
-                              max="10" class="item-amount">
-                          </div>
-                          <div class="card-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                              class="feather feather-shopping-cart">
-                              <circle cx="9" cy="21" r="1"></circle>
-                              <circle cx="20" cy="21" r="1"></circle>
-                              <path d="M1 1h4l2.5 7h13m2 0v12h-16v-12m-2 0h20"></path>
-                            </svg>
-                            <span class="add-to-order-btn"
-                              onclick="addToOrder('<%= item.name %>', '<%= item.price %>', document.getElementById('<%= item.name %>-weight').value)">Add
-                              to your Order</span>
-                          </div>
-                        </div>
-                      </div>
-                </div>
-                <% }) %>
-            </section>
-            <div id="match-message" class="pop-up-message"></div>
+                    </div>
+                  </div>
+            </div>
+            <% }) %>
+        </section>
+        <div id="match-message" class="pop-up-message"></div>
 
   </main>
 
@@ -441,87 +443,87 @@
   </script>
   <script>
     function deleteItem(itemId) {
-    console.log('Attempting to delete item with ID:', itemId); // הוסף לוג לבדיקת ה-ID
-    fetch('/items/delete', {
+      console.log('Attempting to delete item with ID:', itemId); // הוסף לוג לבדיקת ה-ID
+      fetch('/items/delete', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ itemId: itemId }),
-    })
-    .then(response => {
-        if (response.ok) {
-            location.reload(); // רענון הדף
-        } else {
-            alert('Failed to delete item');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Failed to delete item');
-    });
-}
-</script>
-
-<script>
-
-  function filterItemsByPrice() {
-              const minPrice = 100;
-  
-              console.log(`Min Price: ${minPrice}`);
-  
-              const items = Array.from(document.querySelectorAll('.card'));
-  
-              const filteredItems = items.filter(item => {
-                  const priceText = item.querySelector('.item-price').textContent;
-                  const price = parseFloat(priceText.replace('$', '').replace(' per pound', ''));
-                  return price > minPrice;
-              });
-  
-              filteredItems.sort((a, b) => {
-                  const priceA = parseFloat(a.querySelector('.item-price').textContent.replace('$', '').replace(' per pound', ''));
-                  const priceB = parseFloat(b.querySelector('.item-price').textContent.replace('$', '').replace(' per pound', ''));
-                  return priceA - priceB;
-              });
-  
-              items.forEach(item => item.style.display = 'none');
-  
-              filteredItems.forEach(item => item.style.display = 'block');
-          }
-  
-          function filterItemsByName(keyword) {
-              const items = Array.from(document.querySelectorAll('.card'));
-  
-              const filteredItems = items.filter(item => {
-                  const itemName = item.querySelector('.item-name').textContent.toLowerCase();
-                  return itemName.includes(keyword.toLowerCase());
-              });
-  
-              items.forEach(item => item.style.display = 'none');
-  
-              filteredItems.forEach(item => item.style.display = 'block');
-          }
-      </script>
-      <script>
-        function deleteItem(itemId) {
-        console.log('Attempting to delete item with ID:', itemId); // הוסף לוג לבדיקת ה-ID
-        fetch('/items/delete', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ itemId: itemId }),
-        })
+      })
         .then(response => {
-            if (response.ok) {
-                location.reload(); // רענון הדף
-            } else {
-                alert('Failed to delete item');
-            }
+          if (response.ok) {
+            location.reload(); // רענון הדף
+          } else {
+            alert('Failed to delete item');
+          }
         })
-    
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Failed to delete item');
+        });
     }
-    </script>
+  </script>
+
+  <script>
+
+    function filterItemsByPrice() {
+      const minPrice = 100;
+
+      console.log(`Min Price: ${minPrice}`);
+
+      const items = Array.from(document.querySelectorAll('.card'));
+
+      const filteredItems = items.filter(item => {
+        const priceText = item.querySelector('.item-price').textContent;
+        const price = parseFloat(priceText.replace('$', '').replace(' per pound', ''));
+        return price > minPrice;
+      });
+
+      filteredItems.sort((a, b) => {
+        const priceA = parseFloat(a.querySelector('.item-price').textContent.replace('$', '').replace(' per pound', ''));
+        const priceB = parseFloat(b.querySelector('.item-price').textContent.replace('$', '').replace(' per pound', ''));
+        return priceA - priceB;
+      });
+
+      items.forEach(item => item.style.display = 'none');
+
+      filteredItems.forEach(item => item.style.display = 'block');
+    }
+
+    function filterItemsByName(keyword) {
+      const items = Array.from(document.querySelectorAll('.card'));
+
+      const filteredItems = items.filter(item => {
+        const itemName = item.querySelector('.item-name').textContent.toLowerCase();
+        return itemName.includes(keyword.toLowerCase());
+      });
+
+      items.forEach(item => item.style.display = 'none');
+
+      filteredItems.forEach(item => item.style.display = 'block');
+    }
+  </script>
+  <script>
+    function deleteItem(itemId) {
+      console.log('Attempting to delete item with ID:', itemId); // הוסף לוג לבדיקת ה-ID
+      fetch('/items/delete', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ itemId: itemId }),
+      })
+        .then(response => {
+          if (response.ok) {
+            location.reload(); // רענון הדף
+          } else {
+            alert('Failed to delete item');
+          }
+        })
+
+    }
+  </script>
 
 </body>
 

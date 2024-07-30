@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer List</title>
     <style>
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-      th, td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-      }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
     </style>
 </head>
+
 <body>
     <h1>Customer List</h1>
     <table>
@@ -27,12 +31,17 @@
         </thead>
         <tbody>
             <% customers.forEach(function(customer) { %>
-            <tr>
-                <td><%= customer.username %></td>
-                <td><%= customer.email %></td>
-            </tr>
-            <% }); %>
+                <tr>
+                    <td>
+                        <%= customer.username %>
+                    </td>
+                    <td>
+                        <%= customer.email %>
+                    </td>
+                </tr>
+                <% }); %>
         </tbody>
     </table>
 </body>
+
 </html>
