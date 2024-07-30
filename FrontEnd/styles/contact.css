@@ -11,6 +11,12 @@
     color: #fff;
 }
 
+.sun-button {
+    height: 19px;
+    width: 19px;
+    margin-bottom: -5px;
+  }
+  
 .banner {
     width: 100%;
     height: 100vh;
