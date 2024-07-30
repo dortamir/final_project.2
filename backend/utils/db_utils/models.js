@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// Define the item schema
+// הגדרת הסכימה של פריט
 const itemSchema = new mongoose.Schema({
   type: { type: String, required: true },
   name: { type: String, required: true },
@@ -9,17 +9,19 @@ const itemSchema = new mongoose.Schema({
   price: { type: Number, required: true },
 });
 
-// Define the user schema
+// הגדרת הסכימה של משתמש
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },/////OR require
   password: { type: String, required: true },
   email: { type: String, required: true },
 });
 
+// פונקציה להשוואת סיסמאות באמצעות bcrypt
 userSchema.methods.comparePassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
+// הגדרת הסכימה של הזמנה
 const orderSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -39,9 +41,11 @@ const orderSchema = new mongoose.Schema({
   },
 }, { toJSON: { virtuals: true }, toObject: { virtuals: true } });
 
+// וירטואל להוספת שדה מחושב עם תאריך ושעה בפורמט מסוים
 orderSchema.virtual('transactionDateTimeFormatted').get(function () {
   return `Date: ${this.transactionDate.date}\nHour: ${this.transactionDate.hour}`;
 });
+
 // Create the models
 const Item = mongoose.model('Item', itemSchema);
 const User = mongoose.model('User', userSchema);

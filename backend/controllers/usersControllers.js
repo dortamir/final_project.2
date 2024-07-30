@@ -1,6 +1,7 @@
 const models = require('../utils/db_utils/models');
 const users_model = models.User;
 
+// פונקציה לרישום משתמש חדש
 exports.signUp = async (req, res) => {
     try {
         const { username, email, password } = req.body;
@@ -26,6 +27,7 @@ exports.signUp = async (req, res) => {
     }
 };
 
+// פונקציה להתחברות משתמש קיים
 exports.signIn = async (req, res) => {
     try {
         console.log('signIn method called');
@@ -60,6 +62,7 @@ exports.signIn = async (req, res) => {
     }
 };
 
+// פונקציה להתנתקות משתמש
 exports.logout = async (req, res) => {
     try {
         // Clear the user's session

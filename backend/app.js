@@ -35,18 +35,20 @@ const createApp = async function () {
     console.log('failed');
   })
 
-  // Set up the app configuration
+  // קביעת תצורת האפליקציה
   app.set('port', process.env.PORT || 4000);
   app.set('view engine', 'ejs');
   app.set('views', path.join(__dirname, '..', 'frontend', 'views'));  //await load_routes(app);
 
+  // ניתוב לעמוד הרשמה
   app.get('/signup', (req, res) => {
     res.render('signup');
   });
   
+  // ניתוב לעמוד כניסה
   app.get('/signin', async (req, res) => {
     try {
-      // Check if the user is already authenticated
+      // בדיקת התחברות
       if (req.session.user) {
         // User is already signed in, redirect to a different page
         return res.redirect('/dashboard');
@@ -70,6 +72,7 @@ const createApp = async function () {
     }
   });
 
+  // ניתוב לבדיקת התחברות
   app.get('/check-login', (req, res) => {
     if (req.session.user || req.cookies.user) {
       // User is logged in
@@ -80,6 +83,7 @@ const createApp = async function () {
     }
   });
 
+  // ניתוב לעמוד הבית
   app.get('/', function (req, res) {
     // Check if the user is logged in and retrieve the username from the cookies or wherever you store it
     const loggedIn = req.session.user || req.cookies.user;
@@ -89,6 +93,7 @@ const createApp = async function () {
     res.render('index', { loggedIn: !!loggedIn, username: username });
   });
 
+  // ניתוב להתנתקות מהמערכת
   app.get('/logout', async (req, res) => {
     try {
       // Clear the user's session or remove the user's cookie
@@ -109,11 +114,13 @@ const createApp = async function () {
     }
   });
 
+  // ניתוב לעמוד פרופיל משתמש
   app.get('/userprofile', (req, res) => {
     const username = req.cookies.user ? req.cookies.user.username : null; // Retrieve the 'username' cookie value if available
     res.render('userprofile', { username }); // Pass the 'username' variable to the template
   });
   
+  // ניתוב לעמוד תכשיטים מסוג Necklaces
   app.get("/Necklaces", async (req, res) => {
     try {
       const username = req.cookies.user ? req.cookies.user.username : null;
@@ -126,6 +133,7 @@ const createApp = async function () {
     }
   });
 
+  // ניתוב לעמוד תכשיטים מסוג Rings
   app.get("/Rings", async (req, res) => {
     try {
       const username = req.cookies.user ? req.cookies.user.username : null;
@@ -138,6 +146,7 @@ const createApp = async function () {
     }
   });
 
+  // ניתוב לעמוד תכשיטים מסוג Bracelets
   app.get("/Bracelets", async (req, res) => {
     try {
       const username = req.cookies.user ? req.cookies.user.username : null;
@@ -150,6 +159,7 @@ const createApp = async function () {
     }
   });
 
+  // ניתוב לעמוד תכשיטים מסוג earrings
   app.get("/earrings", async (req, res) => {
     try {
       const username = req.cookies.user ? req.cookies.user.username : null;
@@ -162,10 +172,12 @@ const createApp = async function () {
     }
   });
 
+  // ניתוב לעמוד צור קשר
   app.get("/contact", (req, res) => {
     res.render("contact");
   });
 
+  // ניתוב לעמוד up
   app.get("/up", (req, res) => {
     res.render("up");
   });
@@ -175,6 +187,7 @@ const createApp = async function () {
       res.render("up", { username });
     });
 
+    // ניתוב לעמוד הזמנות
     app.get('/orders', (req, res) => {
       const username = req.cookies.user ? req.cookies.user.username : null; // Retrieve the 'username' cookie value if available
   
@@ -183,6 +196,7 @@ const createApp = async function () {
       res.render('orders', { username, items });
     });
   
+    // ניתוב למחיקת פריטים
     app.post('/items/delete', async (req, res) => {
       try {
         const itemId = req.body.Item.itemId;
@@ -194,6 +208,7 @@ const createApp = async function () {
       }
     });
 
+    // ניתוב לתוצאות חיפוש
     app.get('/searchResult', async (req, res) => {
       try {
         const username = req.cookies.user ? req.cookies.user.username : null;
@@ -209,6 +224,8 @@ const createApp = async function () {
         res.status(500).send('Failed to perform search');
       }
     });
+
+    // ניתוב לרשימת לקוחות
     app.get('/custList', async (req, res) => {
       try {
         console.log('Fetching customers from database...'); // לוג לפני שליפת הנתונים
@@ -221,19 +238,18 @@ const createApp = async function () {
       }
     });
     
-    
-    
-
+  // ניתוב לעמוד גרפים
     app.get("/graf", (req, res) => {
       res.render("graf");
     });
 
-    
+  // ניתוב למפת החנות
   app.get('/store_map', (req, res) => {
     const username = req.cookies.user ? req.cookies.user.username : null; // Retrieve the 'username' cookie value if available
     res.render('store_map', { username });
   });
 
+  // ניתוב להיסטוריית עסקאות
   app.get('/transaction_history', async (req, res) => {
     try {
       const username = req.cookies.user ? req.cookies.user.username : null;

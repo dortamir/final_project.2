@@ -1,6 +1,7 @@
 const models = require('../utils/db_utils/models');
 const Item = models.Item;
 
+//פונקציה ליצירת פריט חדש 
 exports.createItems = async (req, res) => {
     try {
         const { type, name, image, price } = req.body;
@@ -13,7 +14,7 @@ exports.createItems = async (req, res) => {
 };
 
 
-
+//פונקציה לעדכון פריט קיים 
 exports.updateItem = async (req, res) => {
   try {
     const { nameorigin, name, image, price } = req.body;
@@ -56,6 +57,7 @@ exports.updateItem = async (req, res) => {
 
 };
 
+//מחיקת פריט
 exports.deleteItem = async (req, res) => {
   try {
       const itemId = req.body.itemId;
@@ -71,7 +73,7 @@ exports.deleteItem = async (req, res) => {
   }
 };
 
-
+//קבלת פריטים לפי סוג
 exports.getItemsByType = async (req, res) => {
     try {
         const itemType = req.query.type;
@@ -83,7 +85,7 @@ exports.getItemsByType = async (req, res) => {
     }
 };
 
-
+//קבלת פריטים לפי שם
 exports.getItemByName = async (req, res) => {
     try {
         const itemName = req.query.name;
@@ -101,11 +103,9 @@ exports.getItemByName = async (req, res) => {
 };
 
 
-
+//פונקצייה לקבלת כל הפריטים
 exports.getItems = async (req, res) => {
     try {
-
-        // HTTP-body example: {"filters": {...}, "search_method": ...}
         const Items_arr = await Item.find();
         console.log(Items_arr);
         res.send(Items_arr);
@@ -114,7 +114,7 @@ exports.getItems = async (req, res) => {
     }
 } // filters will be sent in the http request, and all objects that satisfies this filters will send back
 
-
+//פונקצייה להצגת מוצר בודד
 exports.showSingleProduct = async (req, res) => {
   try {
     const itemID = req.params.id;

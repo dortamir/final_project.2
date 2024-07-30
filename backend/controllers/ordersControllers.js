@@ -2,6 +2,7 @@
 const models = require('../utils/db_utils/models');
 const Order = models.Order;
 
+//הוספת פריט להזמנה
 exports.addToOrder = (req, res) => {
   try {
     const username = req.cookies.user.username; // Get the username from cookies
@@ -21,8 +22,7 @@ exports.addToOrder = (req, res) => {
     if (order.username && order.username !== username) {
       return res.status(400).json({ message: 'User already has an order' });
     }
-
-    // Check if the item already exists in the order
+    // בדיקה אם הפריט קיים כבר בהזמנה
     const existingItem = order.items.find((item) => item.name === itemName);
     if (existingItem) {
       existingItem.quantity += quantity; // Update the quantity
@@ -44,6 +44,8 @@ exports.addToOrder = (req, res) => {
     res.status(500).json({ message: 'Failed to add item to order' });
   }
 };
+
+//פונקצייה לשליחת הזמנה
 exports.submitOrder = async (req, res) => {
   try {
     const username = req.cookies.order.username; // Retrieve the username from the cookies
@@ -51,17 +53,14 @@ exports.submitOrder = async (req, res) => {
     const items = req.cookies.order.items || []; // Retrieve the items from the request body
     const transactionDate = new Date(); // Get the current date and time
     console.log('items:', items);
-    // Check if username and items are available
 
+    // Check if username and items are available
     if (!username || !items || !transactionDate) {
       throw new Error('Invalid order data');
     }
 
     const formattedDate = transactionDate.toISOString().substring(0, 10); // Extract the first 10 characters (YYYY-MM-DD)
     const formattedHour = transactionDate.toISOString().substring(11, 16); // Extract the hour part (HH:MM)
-
-
-
 
     console.log('transactionDate:', formattedDate);
     console.log('transactionDate:', formattedHour);
@@ -88,6 +87,7 @@ exports.submitOrder = async (req, res) => {
   }
 };
 
+//פונקצייה למחיקת פריט מהזמנה
 exports.deleteItem = (req, res) => {
   try {
     const itemName = req.body.itemName;
@@ -132,6 +132,5 @@ exports.deleteItem = (req, res) => {
     console.error('Failed to delete item from order:', error);
     res.status(500).json({ message: 'Failed to delete item from order' });
   }
-
 };
 
