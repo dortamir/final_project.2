@@ -214,11 +214,7 @@
         <button class="submit" onclick="createItems()">Submit</button>
       </form>
       <% } %>
-        <% if (username) { %>
-          <div class="welcome-message">
-            <span class="welcomeMessageText">Hi, <%= username %></span>
-          </div>
-          <% } %>
+
             <section id="fruits-container" class="card-container">
               <% searchResults.forEach(item=> { %>
                 <div class="card">

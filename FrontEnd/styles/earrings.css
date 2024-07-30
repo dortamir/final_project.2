@@ -146,27 +146,7 @@
      height: auto;
  }
 
- .welcome-message {
-    margin-top: -160px;
-    margin-left: -565px;
-     font-family: 'Bebas Neue', cursive;
-     font-size: 1.4em;
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     background-image: linear-gradient(gold, gold);
-     background-size: 100% 10px;
-     background-repeat: no-repeat;
-     background-position: 100% 0%;
-     transition: background-size .7s, background-position .5s ease-in-out;
- }
-
- .welcome-message:hover {
-     background-size: 100% 100%;
-     background-position: 0% 100%;
-     transition: background-position .7s, background-size .5s ease-in-out;
- }
+ 
 
  #match-message {
      display: none;
@@ -525,12 +505,6 @@
      cursor: pointer;
  }
 
- .welcomeMessageText {
-     color: #f0e9e9;
-     font-family: "Times New Roman",
-         Times,
-         serif;
- }
  .card-container {
      margin-top: 3%;
  }
