@@ -3,11 +3,11 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             if (data.loggedIn) {
-                // User is logged in
-                // You can access the user data from data.user and use it as needed
+                // אם המשתמש מחובר
+                // כאן אפשר לגשת למידע של המשתמש ולהשתמש בו לפי הצורך   
                 console.log('User is logged in:', data.user);
             } else {
-                // User is not logged in
+                // אם המשתמש לא מחובר
                 console.log('User is not logged in');
             }
         })

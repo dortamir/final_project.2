@@ -6,13 +6,13 @@ exports.signUp = async (req, res) => {
     try {
         const { username, email, password } = req.body;
 
-        // Check if a user with the same username already exists
+        // בדיקה אם משתמש עם אותו שם משתמש כבר קיים
         const existingUser = await users_model.findOne({ username: username });
         if (existingUser) {
             return res.status(400).json({ error: "Username is already taken" });
         }
 
-        // Create a new user
+        // יצירת משתמש חדש
         await users_model.create({
             username: username,
             email: email,
@@ -34,25 +34,25 @@ exports.signIn = async (req, res) => {
         const { username, password } = req.body;
         console.log('Username:', username);
         console.log('Password:', password);
-        // Check if a user with the same username exists in the database
+        // בדיקה אם משתמש עם אותו שם משתמש קיים במסד הנתונים
         const existingUser = await users_model.findOne({ username: username });
         if (!existingUser) {
-            // User does not exist, return an error message
+            // אם המשתמש לא קיים, מחזירים הודעת שגיאה
             console.log('User does not exist');
             return res.status(400).json({ error: 'Username does not exist' });
         }
 
-        // Check if the provided password matches the user's password in the database
+        // בדיקה אם הסיסמה שהוזנה תואמת לסיסמת המשתמש במסד הנתונים
         if (existingUser.password !== password) {
-            // Password does not match, return an error message
+            // אם הסיסמה לא תואמת, מחזירים הודעת שגיאה
             console.log('Incorrect password');
             return res.status(400).json({ error: 'Incorrect password' });
         }
 
-        // Set cookie to remember user's login
-        res.cookie('user', existingUser, { maxAge: 86400000 }); // Cookie expires after 24 hours
+        // יצירת עוגייה לזכור את ההתחברות של המשתמש
+        res.cookie('user', existingUser, { maxAge: 86400000 }); // עוגייה שפגה לאחר 24 שעות
 
-        // Return a success message
+        // מחזירים הודעת הצלחה
         console.log('User signed in successfully');
         return res.json({ message: 'User signed in successfully' });
 
@@ -65,14 +65,14 @@ exports.signIn = async (req, res) => {
 // פונקציה להתנתקות משתמש
 exports.logout = async (req, res) => {
     try {
-        // Clear the user's session
+        // ניקוי הסשן של המשתמש
         req.session.destroy();
 
-        // Remove the user's cookie
+        // הסרת קוקיז המשתמש
         res.clearCookie('user');
         res.clearCookie('order');
 
-        // Redirect the user to the login page or any other desired page
+        // ניתוב המשתמש לדף ההתחברות או לכל דף אחר
         res.redirect('/');
     } catch (error) {
         console.error('Error Logging Out:', error);

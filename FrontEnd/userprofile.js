@@ -1,6 +1,7 @@
 function submitForm(event) {
-    event.preventDefault(); // Prevent the default form submission
-
+    event.preventDefault(); // מנע את שליחת הטופס הבסיסית (רענון הדף)
+    
+    //קבלת אלמנטים
     const form = document.getElementById('signInForm');
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
@@ -9,31 +10,35 @@ function submitForm(event) {
     const username = usernameInput.value;
     const password = passwordInput.value;
 
+    // שלח את נתוני ההתחברות לשרת
     fetch('/users/signIn', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json' // ציין שהתוכן הוא JSON
         },
-        body: JSON.stringify({
+        body: JSON.stringify({ // המר את נתוני ההתחברות ל-JSON
             username,
             password
         }),
-        credentials: 'same-origin' // Include cookies in the request
+        credentials: 'same-origin' // כלול את הקוקיז בבקשה
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data); // Handle the response
+            console.log(data); // הדפס את התגובה
 
             if (data.error) {
-                errorContainer.textContent = data.error; // Display the error message
+                // אם יש שגיאה, הצג את הודעת השגיאה
+                errorContainer.textContent = data.error; 
             } else {
-                // Redirect to the user profile page
-                window.location.href = '/';
+            // אם אין שגיאות, הפנה את המשתמש לדף הראשי
+            window.location.href = '/';
             }
         })
         .catch(error => {
+            // טיפול בשגיאות במקרה של כשלון במהלך הבקשה
             console.log(error); // Handle any error that occurred during the request
         });
 }
 
+// הוסף מאזין לאירוע הקלקה על כפתור הכניסה
 document.getElementById('signInBtn').addEventListener('click', submitForm);

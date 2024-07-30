@@ -1,12 +1,12 @@
-// ordersControllers.js
 const models = require('../utils/db_utils/models');
 const Order = models.Order;
 
 //הוספת פריט להזמנה
 exports.addToOrder = (req, res) => {
   try {
-    const username = req.cookies.user.username; // Get the username from cookies
+    const username = req.cookies.user.username; // קבלת שם משתמש מהקוקיז
 
+    //בדיקה אם המשתמש מאומת
     if (!username) {
       return res.status(401).json({ message: 'User not authenticated' });
     }
@@ -15,19 +15,19 @@ exports.addToOrder = (req, res) => {
     const quantity = parseFloat(req.body.quantity);
     const price = parseFloat(req.body.price);
 
-    // Get the current order data from cookies or initialize an empty order object
+    // קבלת נתוני ההזמנה הנוכחית מהקוקיז או אתחול אובייקט הזמנה ריק
     const order = req.cookies[`order`] || { username, items: [] };
 
-    // Check if the user already has an order in the cookies
+    // בדיקה אם המשתמש כבר יש לו הזמנה בקוקיז
     if (order.username && order.username !== username) {
       return res.status(400).json({ message: 'User already has an order' });
     }
     // בדיקה אם הפריט קיים כבר בהזמנה
     const existingItem = order.items.find((item) => item.name === itemName);
     if (existingItem) {
-      existingItem.quantity += quantity; // Update the quantity
+      existingItem.quantity += quantity; // עדכון כמות
     } else {
-      // Add the new item to the order
+      // הוספת הפריט החדש להזמנה
       order.items.push({
         name: itemName,
         price: price,
@@ -35,7 +35,7 @@ exports.addToOrder = (req, res) => {
       });
     }
 
-    // Store the updated order in cookies
+    // שמירת ההזמנה המעודכנת בקוקיז
     res.cookie(`order`, order);
 
     res.status(200).json(order);
@@ -48,13 +48,13 @@ exports.addToOrder = (req, res) => {
 //פונקצייה לשליחת הזמנה
 exports.submitOrder = async (req, res) => {
   try {
-    const username = req.cookies.order.username; // Retrieve the username from the cookies
+    const username = req.cookies.order.username; // קבלת שם המשתמש מהעוגיות
     console.log('user: ', username);
-    const items = req.cookies.order.items || []; // Retrieve the items from the request body
-    const transactionDate = new Date(); // Get the current date and time
+    const items = req.cookies.order.items || []; // קבלת הפרטים מהעוגיות
+    const transactionDate = new Date(); // קבלת התאריך והשעה הנוכחיים
     console.log('items:', items);
 
-    // Check if username and items are available
+    // בדיקה אם שם המשתמש והפריטים קיימים
     if (!username || !items || !transactionDate) {
       throw new Error('Invalid order data');
     }
@@ -65,7 +65,7 @@ exports.submitOrder = async (req, res) => {
     console.log('transactionDate:', formattedDate);
     console.log('transactionDate:', formattedHour);
 
-    // Create a new Order document in the database
+    // יצירת מסמך הזמנה חדש במסד הנתונים
     const newOrder = await Order.create({
       user: username,
       items: items,
@@ -79,7 +79,7 @@ exports.submitOrder = async (req, res) => {
 
     console.log('Order submitted successfully');
 
-    // Return a success response
+    // החזרת תגובת הצלחה
     res.status(200).json({ message: 'Order submitted successfully' });
   } catch (error) {
     console.error('Failed to submit order:', error);
@@ -92,18 +92,18 @@ exports.deleteItem = (req, res) => {
   try {
     const itemName = req.body.itemName;
 
-    // Get the current order data from cookies
+    // קבלת נתוני ההזמנה הנוכחית מהקוקיז
     let order = req.cookies.order;
 
-    // Check if the order exists
+    // בדיקה אם ההזמנה קיימת
     if (!order) {
       return res.status(400).json({ message: 'Order not found' });
     }
 
-    // Find the index of the item in the order
+    // מציאת האינדקס של הפריט בהזמנה
     const itemIndex = order.items.findIndex((item) => item.name === itemName);
 
-    // Check if the item exists in the order
+    // בדיקה אם הפריט קיים בהזמנה
     if (itemIndex === -1) {
       return res.status(400).json({ message: 'Item not found in order' });
     }
@@ -113,15 +113,15 @@ exports.deleteItem = (req, res) => {
 
     const deletedItemName = order.items[itemIndex].name;
 
-    // Remove the item from the order
+    // הסרת הפריט מההזמנה
     order.items.splice(itemIndex, 1);
 
-    // Check if the order is empty
+    // בדיקה אם ההזמנה ריקה
     if (order.items.length === 0) {
-      // Clear the order from cookies
+      // ניקוי קוקיז ההזמנה
       res.clearCookie('order');
     } else {
-      // Update the order in cookies
+      // עדכון ההזמנה בקוקיז
       res.cookie('order', order);
     }
 

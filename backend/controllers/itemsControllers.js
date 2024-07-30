@@ -112,7 +112,7 @@ exports.getItems = async (req, res) => {
     } catch (err) {
         res.status(400).send(err);
     }
-} // filters will be sent in the http request, and all objects that satisfies this filters will send back
+} // פילטרים ישלחו בבקשת HTTP, וכל מה שיתקבל ויתאים ישלח חזרה 
 
 //פונקצייה להצגת מוצר בודד
 exports.showSingleProduct = async (req, res) => {
