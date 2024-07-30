@@ -46,15 +46,15 @@
  }
 
  .card {
-     background-color: #c3b6a4;
-     border-radius: 8px;
-     padding: 20px;
-     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-     position: relative;
-     align-items: center;
-     display: flex;
-     flex-direction: column;
- }
+    background-color: #d3cecfe0;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  }
 
  .card-img img {
      width: 100%;
@@ -243,7 +243,7 @@
  }
 
  .add-item-button {
-    --main-focus: #2d8cf0;
+    --main-focus: #63400481;
     position: relative;
     width: 150px;
     cursor: pointer;
@@ -268,28 +268,28 @@
 
 }
 
- .add-item-form {
-     display: none;
-     position: fixed;
-     top: 30%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     flex-direction: column;
-     gap: 10px;
-     max-width: 300px;
-     background-color: #fff;
-     padding: 20px;
-     border-radius: 20px;
-     z-index: 999;
-     margin: 0 auto;
-     /* Center the form horizontally */
-     margin-top: 100px;
-     /* Adjust the vertical position as needed */
- }
+.add-item-form {
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    z-index: 999;
+    margin: 0 auto; /* Center the form horizontally */
+    margin-top: 170px; /* Adjust the vertical position as needed */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    border: solid white;
+  }
 
  .add-item-form .title {
      font-size: 28px;
-     color: royalblue;
+     color: #63400481;
      font-weight: 600;
      letter-spacing: -1px;
      position: relative;
@@ -306,13 +306,13 @@
      width: 16px;
      border-radius: 50%;
      left: 0px;
-     background-color: royalblue;
+     background-color: #63400481;
  }
 
  .add-item-form .title::before {
      width: 18px;
      height: 18px;
-     background-color: royalblue;
+     background-color: #63400481;
  }
 
  .add-item-form .title::after {
@@ -330,11 +330,11 @@
  }
 
  .add-item-form .signin a {
-     color: royalblue;
+     color: #63400481;
  }
 
  .add-item-form .signin a:hover {
-     text-decoration: underline royalblue;
+     text-decoration: underline #63400481;
  }
 
  .add-item-form .flex {
@@ -385,7 +385,7 @@
  .add-item-form .submit {
      border: none;
      outline: none;
-     background-color: royalblue;
+     background-color: #63400481;
      padding: 10px;
      border-radius: 10px;
      color: #fff;
@@ -395,7 +395,7 @@
  }
 
  .add-item-form .submit:hover {
-     background-color: rgb(56, 90, 194);
+     background-color: #63400481(56, 90, 194);
  }
 
  @keyframes pulse {
@@ -418,7 +418,7 @@
      align-items: center;
      justify-content: center;
      padding: 0.5rem 1rem;
-     background-color: #766666;
+     background-color: #63400481;
      color: rgb(18, 17, 17);
      border: 2px solid #D1D5DB;
      font-size: 1rem;
