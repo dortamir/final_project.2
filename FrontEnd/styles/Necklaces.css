@@ -1,5 +1,4 @@
 body {
- 
   padding: 0;
   background: linear-gradient(hsla(0, 2%, 81%, 0.75), rgba(203, 202, 202, 0.75)), url(../image/backimage.jpg);
   background-repeat: no-repeat;
@@ -278,8 +277,8 @@ footer {
   padding: 20px;
   border-radius: 20px;
   z-index: 999;
-  margin: 0 auto; /* Center the form horizontally */
-  margin-top: 170px; /* Adjust the vertical position as needed */
+  margin: 0 auto; 
+  margin-top: 170px; 
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   border: solid white;
 }
@@ -323,7 +322,6 @@ footer {
   color: rgba(88, 87, 87, 0.822);
   font-size: 14px;
   text-align: center;
-  /* Center-align the message and signin text */
 }
 
 .add-item-form .signin a {
@@ -431,7 +429,6 @@ footer {
   border: 2px solid #ee0d0d;
   color: #fff;
 }
-
 
 .cart-container {
   display: flex;

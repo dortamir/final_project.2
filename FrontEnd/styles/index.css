@@ -7,8 +7,7 @@ body {
   margin: 0;
 }
 
-h2,
-p {
+h2, p {
   margin: 0;
 }
 
@@ -64,7 +63,6 @@ header {
 
 main {
   margin-top: -150px;
-  /* Adjust margin-top as desired */
 }
 
 section {
@@ -200,7 +198,6 @@ nav ul li a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* background-image: linear-gradient(gold, gold);*/
   background-size: 100% 10px;
   background-repeat: no-repeat;
   background-position: 100% 0%;

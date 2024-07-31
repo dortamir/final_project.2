@@ -1,52 +1,50 @@
 body {
-    margin: 0;
-    padding: 0;
-    
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #ffffff;
-  }
-  
-  .back-to-home-btn img {
-    width: 110px;
-    height: 70px;
-  }
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+.back-to-home-btn img {
+  width: 110px;
+  height: 70px;
+}
 
 .container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo-container {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    margin-top: -5%;
-  }
-  
-  .logo-container img {
-    width: 250px;
-    height: auto;
-  }
-
-.title {
-    font-size: 24px;
-    text-align: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-top: -5%;
 }
 
-/* Main Styles */
+.logo-container img {
+  width: 250px;
+  height: auto;
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
+}
+
 main {
-    padding: 50px;
+  padding: 50px;
 }
 
 .welcome-message {
@@ -57,11 +55,11 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background-size: 100% 10px;
   background-repeat: no-repeat;
   background-position: 100% 0%;
-   transition: background-size .7s, background-position .5s ease-in-out;
+  transition: background-size .7s, background-position .5s ease-in-out;
 }
 
 .welcome-message:hover {
@@ -69,7 +67,6 @@ main {
   background-position: 0% 100%;
   transition: background-position .7s, background-size .5s ease-in-out;
 }
-
 
 .accordion {
   max-width: 800px;

@@ -1,6 +1,6 @@
 function submitForm() {
     const form = document.getElementById('signup-form');
-    form.removeEventListener('submit', submitForm); // Remove the event listener temporarily
+    form.removeEventListener('submit', submitForm);
 
     const usernameInput = document.getElementById('username');
     const usernameError = document.getElementById('username-error');

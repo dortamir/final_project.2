@@ -170,9 +170,6 @@
 
 <body>
 
-
-
-
     <h1 class="we">About Us:</h1>
 
     <div>
@@ -221,8 +218,6 @@
             }]
         };
 
-
-
         const newProductsData = {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             datasets: [{
@@ -245,7 +240,6 @@
             }]
         };
 
-
         // Create charts
         const ordersCtx = document.getElementById('ordersChart').getContext('2d');
         new Chart(ordersCtx, {
@@ -263,9 +257,6 @@
                 }
             }
         });
-
-
-
 
         const newProductsCtx = document.getElementById('newProductsChart').getContext('2d');
         new Chart(newProductsCtx, {
@@ -294,7 +285,7 @@
                         display: true,
                         text: 'Users per Year',
                         font: {
-                            size: 20 // כאן אתה יכול לשנות את גודל הגופן
+                        size: 20 // כאן אתה יכול לשנות את גודל הגופן
                         }
                     }
                 }

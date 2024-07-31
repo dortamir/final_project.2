@@ -1,5 +1,4 @@
 body {
-
     color: white;
     font-family: "Times New Roman", Times, serif;
     background: linear-gradient(hsla(0, 2%, 81%, 0.75), rgba(203, 202, 202, 0.75)), url(../image/backimage.jpg);
@@ -15,7 +14,6 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 10px;
-    
 }
 
 .form {
@@ -28,20 +26,17 @@ body {
     justify-content: center;
     padding: 3%;
     font-family: "Times New Roman", Times, serif;
-
 }
 
 .form .title {
     font-size: 24px;
     margin-bottom: 10px;
     color: #f5f1f3;
-    
 }
 
 .form .message {
     font-size: 14px;
     color: #f1eef0;
-    ;
     margin-bottom: 20px;
 }
 
@@ -165,9 +160,7 @@ button {
     position: relative;
     overflow: hidden;
 }
-        
-        
-        
+            
 button:hover span {
     width: 100%;
 }

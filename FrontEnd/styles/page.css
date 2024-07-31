@@ -141,9 +141,8 @@ button:hover {
 button.new {
     margin-top: -10px;
 }
- .welcomeMessageText {
-     color: #f0e9e9;
-     font-family: "Times New Roman",
-         Times,
-         serif;
- }
+
+.welcomeMessageText {
+    color: #f0e9e9;
+    font-family: "Times New Roman", Times, serif;
+}
