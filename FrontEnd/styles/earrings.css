@@ -182,7 +182,7 @@
      font-size: 12px;
      font-weight: 300;
      border-radius: 30px;
-     cursor: not-allowed;
+     cursor: pointer;
      overflow: hidden;
      transition: all 0.3s ease cubic-bezier(0.23, 1, 0.320, 1);
      margin-bottom: 5px;

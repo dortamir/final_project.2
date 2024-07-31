@@ -86,7 +86,6 @@
       width: 200px;
       padding: 15px 0;
       text-align: center;
-
       border-radius: 25px;
       font-weight: bold;
       border: 2px solid #63400481;
@@ -440,30 +439,7 @@
     const submitButton = document.querySelector('.submit');
     submitButton.addEventListener('click', createItems);
   </script>
-  <script>
-    function deleteItem(itemId) {
-      console.log('Attempting to delete item with ID:', itemId); // הוסף לוג לבדיקת ה-ID
-      fetch('/items/delete', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ itemId: itemId }),
-      })
-        .then(response => {
-          if (response.ok) {
-            location.reload(); // רענון הדף
-          } else {
-            alert('Failed to delete item');
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert('Failed to delete item');
-        });
-    }
-  </script>
-
+  
   <script>
 
     function filterItemsByPrice() {
