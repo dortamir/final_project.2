@@ -271,7 +271,25 @@ const createApp = async function () {
       res.status(500).send('Failed to fetch transaction history');
     }
   });
-
+  app.get('/api/orders/monthly', async (req, res) => {
+    try {
+      const orders = await Order.aggregate([
+        {
+          $unwind: "$items"  // פתיחת המערך items
+        },
+        {
+          $group: {
+            _id: { month: { $month: "$transactionDate.date" }, year: { $year: "$transactionDate.date" } },
+            totalItems: { $sum: "$items.quantity" }  // חישוב סך הפריטים
+          }
+        },
+        { $sort: { "_id.year": 1, "_id.month": 1 } }
+      ]);
+      res.json(orders);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  });
   return app;
 }
 module.exports = { db, createApp };
