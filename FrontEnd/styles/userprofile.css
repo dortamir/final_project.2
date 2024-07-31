@@ -364,3 +364,11 @@ button.new {
   border: 0px solid;
   width: 23px;
 }
+
+.error-message{
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-weight: bold;
+  font-size: 140%;
+}

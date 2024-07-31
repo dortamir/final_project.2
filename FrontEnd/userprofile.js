@@ -10,6 +10,8 @@ function submitForm(event) {
     const username = usernameInput.value;
     const password = passwordInput.value;
 
+    errorContainer.textContent = '';
+
     // שלח את נתוני ההתחברות לשרת
     fetch('/users/signIn', {
         method: 'POST',
@@ -37,6 +39,8 @@ function submitForm(event) {
         .catch(error => {
             // טיפול בשגיאות במקרה של כשלון במהלך הבקשה
             console.log(error); // Handle any error that occurred during the request
+            errorContainer.textContent = 'An error occurred. Please try again.';
+            errorContainer.style.color = 'red';
         });
 }
 
