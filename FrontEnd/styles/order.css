@@ -421,7 +421,7 @@ h2 small {
 
 .form-container {
   width: 350px;
-  background-color: #fff;
+  background-color: #cec8c7b0;
   padding: 32px 24px;
   font-size: 14px;
   font-family: Arial, sans-serif;
@@ -490,7 +490,7 @@ h2 small {
 }
 
 .form-container .social-button.apple {
-  background-color: #000;
+  background-color: #d52a9c;
 }
 
 .form-container .line {
@@ -549,7 +549,7 @@ h2 small {
 /* Payment form details */
 .form-container2 {
   width: 350px;
-  background-color: #fff;
+  background-color: #cec8c7b0;
   padding: 32px 24px;
   font-size: 14px;
   font-family: Arial, sans-serif;
@@ -618,7 +618,7 @@ h2 small {
 }
 
 .form-container2 .social-button.apple {
-  background-color: #000;
+  background-color: #c52c8d;
 }
 
 .form-container2 .line {
