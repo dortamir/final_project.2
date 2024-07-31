@@ -316,7 +316,7 @@
           <br>
           <br>
         </div>
-        <section id="fruits-container" class="card-container">
+        <section class="card-container">
           <% Necklaces.forEach(item=> { %>
             <div class="card">
               <% if (username==='manager' ) { %>
@@ -456,9 +456,7 @@
 
     function filterItemsByPrice() {
       const minPrice = 100;
-
       console.log(`Min Price: ${minPrice}`);
-
       const items = Array.from(document.querySelectorAll('.card'));
 
       const filteredItems = items.filter(item => {
@@ -474,7 +472,6 @@
       });
 
       items.forEach(item => item.style.display = 'none');
-
       filteredItems.forEach(item => item.style.display = 'block');
     }
 
@@ -482,7 +479,6 @@
       const maxPrice = 100;
 
       console.log(`Max Price: ${maxPrice}`);
-
       const items = Array.from(document.querySelectorAll('.card'));
 
       const filteredItems = items.filter(item => {
@@ -498,7 +494,6 @@
       });
 
       items.forEach(item => item.style.display = 'none');
-
       filteredItems.forEach(item => item.style.display = 'block');
     }
 
@@ -511,7 +506,6 @@
       });
 
       items.forEach(item => item.style.display = 'none');
-
       filteredItems.forEach(item => item.style.display = 'block');
     }
   </script>

@@ -42,7 +42,7 @@ const createApp = async function () {
   // קביעת תצורת האפליקציה
   app.set('port', process.env.PORT || 4000);
   app.set('view engine', 'ejs');
-  app.set('views', path.join(__dirname, '..', 'frontend', 'views'));  //await load_routes(app);
+  app.set('views', path.join(__dirname, '..', 'frontend', 'views'));  
 
   // ניתוב לעמוד הרשמה
   app.get('/signup', (req, res) => {
@@ -54,7 +54,7 @@ const createApp = async function () {
     try {
       // בדיקת התחברות
       if (req.session.user) {
-        // User is already signed in, redirect to a different page
+        // המשתמש כבר מחובר, תפנה לעמוד אחר
         return res.redirect('/dashboard');
       }
 
@@ -79,10 +79,10 @@ const createApp = async function () {
   // ניתוב לבדיקת התחברות
   app.get('/check-login', (req, res) => {
     if (req.session.user || req.cookies.user) {
-      // User is logged in
+      // משתמש מחובר
       return res.status(200).json({ loggedIn: true, user: req.session.user || req.cookies.user });
     } else {
-      // User is not logged in
+      // משתמש לא מחובר
       return res.status(200).json({ loggedIn: false });
     }
   });
@@ -129,7 +129,6 @@ const createApp = async function () {
     try {
       const username = req.cookies.user ? req.cookies.user.username : null;
       const Necklaces = await Item.find({ type: "Necklace" }).exec();
-      // console.log(fruits); // Log the retrieved Necklaces data
       res.render("Necklaces", { username, Necklaces });
     } catch (error) {
       console.error(error);
@@ -142,7 +141,6 @@ const createApp = async function () {
     try {
       const username = req.cookies.user ? req.cookies.user.username : null;
       const Rings = await Item.find({ type: "Ring" }).exec();
-      // console.log(Rings); // Log the retrieved fruits data
       res.render("Rings", { username, Rings });
     } catch (error) {
       console.error(error);
@@ -155,7 +153,6 @@ const createApp = async function () {
     try {
       const username = req.cookies.user ? req.cookies.user.username : null;
       const Bracelets = await Item.find({ type: "Bracelate" }).exec();
-      // console.log(Bracelets); // Log the retrieved fruits data
       res.render("Bracelets", { username, Bracelets });
     } catch (error) {
       console.error(error);

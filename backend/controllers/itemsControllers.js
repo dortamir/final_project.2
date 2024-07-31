@@ -3,11 +3,10 @@ const Item = models.Item;
 const axios = require('axios'); 
 
 
-// Replace 'your-page-access-token' with your actual access token
 const pageAccessToken = 'EAAMLg1FI27gBOz932JvXPPtVcLTHK2pcwLWZASZAFeK6ZAMhenbBv4eaZAKloHIicoMik54fCzgwEwRcVUzXOyqy0jL8QoxznUYrbw4NiXNiSnzLPN62ljt64ae5uvHigHrzoQr4p2UzbZB5uKG1Qrew4YCYZC918vgKhuTv0Dbu0Rh5fbZCzNmdhm8ecCf6RyLcGK0fVmzPDZCVFIluCOn6Qop1';
 const pageId = '397708486754151';
 
-// Function to post to Facebook
+// פונקצייה להעלאת פוסטים בפייסבוק
 const postToFacebook = async (product) => {
  
   const message = `

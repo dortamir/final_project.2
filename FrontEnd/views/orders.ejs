@@ -337,13 +337,13 @@
                                 </svg>
                                 <span>Sign in with Facebook</span>
                             </button>
-                            <button class="social-button apple" onclick="openinstegram()">
+                            <button class="social-button apple" onclick="openinstagram()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 37 37">
                                     <path fill="#fff" d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z"/>
                                     <path fill="#fff" d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z"/>
                                     <circle cx="31.5" cy="16.5" r="1.5" fill="#fff"/>
                                 </svg>
-                                <span>Sign in with instegram</span>
+                                <span>Sign in with instagram</span>
                             </button>
                         </div>
                         <div class="line"></div>
@@ -366,7 +366,7 @@
                             function openFacebook() {
                                 window.location.href = 'https://www.facebook.com/profile.php?id=61563277076904&mibextid=LQQJ4d';
                             }
-                            function openinstegram() {
+                            function openinstagram() {
                                 window.location.href = 'https://www.instagram.com/dtsljewelry/';
                             }
                         </script>
@@ -420,22 +420,22 @@
                                 const cvvRegex = /^[0-9]{3}$/;
 
                                 if (!cardNumberRegex.test(cardNumber)) {
-                                    errorMessage.textContent = 'מספר אשראי לא תקין';
+                                    errorMessage.textContent = 'CARD NUMBER NOT VALID';
                                     return false;
                                 }
                                 if (!expiryDateRegex.test(expiryDate)) {
-                                    errorMessage.textContent = 'תוקף אשראי לא תקין';
+                                    errorMessage.textContent = 'EXPIRATION DATE NOT VALID';
                                     return false;
                                 }
 
                                 const [month, year] = expiryDate.split('/');
                                 if (parseInt(year, 10) < 24 || parseInt(year, 10) > 60) {
-                                    errorMessage.textContent = 'תוקף אשראי לא תקין';
+                                    errorMessage.textContent = 'EXPIRATION DATE NOT VALID';
                                     return false;
                                 }
 
                                 if (!cvvRegex.test(cvv)) {
-                                    errorMessage.textContent = 'קוד CVV לא תקין';
+                                    errorMessage.textContent = 'CVV NOT VALID';
                                     return false;
                                 }
 
