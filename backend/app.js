@@ -9,9 +9,6 @@ const Item = require('./utils/db_utils/models').Item;
 const Order = require('./utils/db_utils/models').Order;
 const User = require('./utils/db_utils/models').User; 
 
-const FACEBOOK_PAGE_ID = process.env.FACEBOOK_PAGE_ID;
-const FACEBOOK_ACCESS_TOKEN =process.env.FACEBOOK_ACCESS_TOKEN;
-
 const createApp = async function () {
   const app = express();
   app.use(express.json());
@@ -27,12 +24,10 @@ const createApp = async function () {
     resave: false,
     saveUninitialized: false,
   }));
+  
   app.use(express.urlencoded({ extended: false }));
-
   console.log('App Created !');
-  await db.connect(
-    "mongodb+srv://shaniattias851:shaniattias851@cluster0.wtvqcd7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
-  ).then(()=>{
+  await db.connect(process.env.MONGODB_URI).then(()=>{
     console.log('Database Connected!');
   })
   .catch(()=>{
