@@ -95,6 +95,7 @@ exports.deleteItem = async (req, res) => {
           console.log('Item not found');
           return res.status(404).json({ message: "Item not found" });
       }
+      res.status(200).json({ message: "Item deleted successfully" });
   } catch (err) {
       console.error('Error deleting item:', err);
       res.status(500).json({ error: err.message });
