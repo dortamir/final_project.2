@@ -287,6 +287,27 @@ const createApp = async function () {
       res.status(500).send(error);
     }
   });
+  // נתיב לגרף קווים
+app.get('/api/sales/monthly', async (req, res) => {
+  try {
+    const sales = await Order.aggregate([
+      {
+        $unwind: "$items"  // פתיחת המערך items
+      },
+      {
+        $group: {
+          _id: { month: { $month: "$transactionDate.date" }, year: { $year: "$transactionDate.date" } },
+          totalSales: { $sum: { $multiply: ["$items.price", "$items.quantity"] } }  // חישוב סך המכירות
+        }
+      },
+      { $sort: { "_id.year": 1, "_id.month": 1 } }
+    ]);
+    res.json(sales);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
   return app;
 }
 module.exports = { db, createApp };

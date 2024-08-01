@@ -40,7 +40,7 @@
 </head>
 <body>
     <h1>About Us:</h1>
-    <h2>number of items ordered per month</h2>
+    <h2>Number of items ordered per month</h2>
     <div id="chart-container">
      <canvas id="ordersChart" class="chart"></canvas>
     <h2>Amount of sales per month</h2>
@@ -113,39 +113,45 @@
             });
            
             // גרף קווים
-            const salesData = {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'], // חודשים
-                datasets: [{
-                    label: 'Total Sales',
-                    data: [1200, 1500, 1800, 1300, 1600, 1900], // סכום הקניות לפי חודשים
-                    borderColor: 'rgba(75, 192, 192, 1)', // צבע הקו
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)', // צבע הרקע של הקו
-                    fill: true, // להוסיף שטח מתחת לקו
-                }]
-            };
+         
+    const salesResponse = await fetch('/api/sales/monthly');
+    const salesData = await salesResponse.json();
 
-            const ctxSales = document.getElementById('salesChart').getContext('2d');
-            new Chart(ctxSales, {
-                type: 'line',
-                data: salesData,
-                options: {
-                    responsive: true,
-                    scales: {
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Month'
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Total Sales'
-                            }
-                        }
+    const salesLabels = salesData.map(d => `${months[d._id.month - 1]} ${d._id.year}`);
+    const salesValues = salesData.map(d => d.totalSales);
+
+    const ctxSales = document.getElementById('salesChart').getContext('2d');
+    new Chart(ctxSales, {
+        type: 'line',
+        data: {
+            labels: salesLabels,
+            datasets: [{
+                label: 'Total Sales',
+                data: salesValues,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                fill: true,
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Month'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Total Sales'
                     }
                 }
-            });
+            }
+        }
+    });
+
         });
     </script>
 </body>
