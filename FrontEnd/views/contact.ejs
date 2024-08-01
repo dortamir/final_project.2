@@ -59,15 +59,15 @@
     <script>
         async function fetchWeatherData() {
         try {
-            const apiKey = '6f9afe9e2bf281433ce82a70577a6aff';
-            const city = 'Rishon LeZion';
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=he`);
-            const weatherData = await response.json();
-            document.getElementById('weather-data').innerText = `
-                  Temperature: ${weatherData.main.temp}°C
-                   
-                  ${weatherData.weather[0].description}
-             `;
+            const apiKey = '6f9afe9e2bf281433ce82a70577a6aff'; // החלף במפתח ה-API שלך
+                const city = 'Rishon LeZion';
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=he`);
+                const weatherData = await response.json();
+                document.getElementById('weather-data').innerText = `
+                    Temperature: ${weatherData.main.temp}°C
+                    
+                    ${weatherData.weather[0].description}
+                `;
             } catch (error) {
                 document.getElementById('weather-data').innerText = 'שגיאה בקבלת נתוני מזג אוויר';
                 console.error(error);
